@@ -1,7 +1,13 @@
 <!DOCTYPE HTML>
 <html>
     <title>HTML 101</title>
-    Hello World!
+    <body>
+        <span>Hello World!</span>
+        <div>
+            <span>Hello World AGAIN!</span>
+        </div>
+    </body>
+    
     <!-- Hi I am your first HTML file! -->
     <!-- The line above was a comment. -->
     <!-- 
@@ -60,17 +66,45 @@
         Exercise 4. Hello World (and a body!)
         /////////////////////////////////////
 
-        The page looks still miserably empty and we are already at the fourth 
-        exercise. Let's add some content immediately! As you know already, the
-        first thing you need to write is: "Hello World".
+        a. The page looks still miserably empty and we are already at the fourth exercise. Let's add some content immediately! As you know already, the first thing you write in these occasions is: "Hello World".
         
-        Hint: browser displays the title of a page inside the tab or on its title
-        bar. Sounds a good idea, to add one, right? 
-        Hint: Use the <title> tag.
-        Hint2: In HTML 4.01, the <title> tag needed to be inside the <head>
-        tag, which should contain all meta information about the web page 
-        itself. In HTML 5, you can omit the <head> tag.
+        Hint: You should first add the <body> tags. Unlike <head>, <body> is 
+        a mandatory tag.
 
+        b. Now comment out the body tag and inspect the page in the "Elements"
+        tab of the DevTools of your browser. Does the browser add missing tags automatically? 
+
+        Exercise 5. Structures 
+        ///////////////////////
+
+        HTML defines the structure (i.e., the layout) of the page---together with CSS which we will see in the moment. Forget about CSS, let's see
+        what HTML can do alone.
+
+        a. Add a <span> tag around "Hello World." Does something happens?
+            
+        b. Adds a new <span> tag enclosing "Hello World AGAIN." Does something happens? Where is "Hello World AGAIN." position relative to the content of the first <span>?
+            
+        c. Now add a <div> around the second <span> containing "Hello World
+        AGAIN." What happened? <div> and <span> are both containers for text (or other elements), but they have a different default display. Some elements are "block" elements, like <div> or <p>, other are "in-line" elements like <span>.
+        Hint: in fact, <div> stands for divisor.
+        Hint2: and <p> for paragraph.
+
+        d. Finally, this exercise cannot be complete if you are not introduced
+        the an old friend: the <br> element. <br> means break and it just adds
+        a new return line to the display of the page. In theory, <br>'s usage should be limited to very few usecases, because you have much more control over the space in the page with CSS. In practice, you use this quick-and-dirty <br> quite often. Spray around some <br> love on the page, as it most pleases you.  
+
+        e. <br> is not single tag, it does not enclose any other element. You may also encounter other self-closing specifications such as: <br/> or <br />. Is there a difference among those?
+
+        https://stackoverflow.com/questions/1946426/html-5-is-it-br-br-or-br
+
+    -->
+
+    <!--
+        You finished this sheet!
+        ////////////////////////
+
+        It was not that difficult, you should look for thougher challenges 
+        in the next sheet.
     -->
     
 </html>
