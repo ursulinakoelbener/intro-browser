@@ -1,0 +1,99 @@
+<html>
+     <!--
+        
+        /////////////////////
+        Exercise Sheet 4: CSS
+        /////////////////////
+
+        We have learned of tags, attributes, and external files.
+        But the page still looked terrible.
+        Now we need to learn how to be stylish.
+
+        There are four ways of styling a page, because why not?
+        All involve knowning a little bit of the CSS syntax.
+        
+        More precisely, CSS means Cascading Style Sheet. We will learn what cascading means in these exercises.
+
+        CSS are extremely powerful, can be very large and complex. 
+        Luckily, their syntax is straightforward and intuitive.
+        For a beginner entrypoint to CSS see:
+        https://www.w3schools.com/Css/
+        
+    -->
+
+        <title>CSS</title>
+
+
+        <!-- Option 1: Linking an external CSS file -->
+        <link rel="stylesheet" href="./css/style.css" />
+
+    </head>
+    <body>
+        
+        <!-- The class attribute associates one or more classes to elements -->
+        <div id="above" class="large">
+           Linus Torvald
+        </div>
+
+        <!-- Option 3: the inline "style" attribute --> 
+        <div id="below" class="large">
+           Brendan Eich
+        </div>
+        
+
+         <!-- 
+
+            Exercise 1. External CSS Files.
+            ///////////////////////////////
+
+            The folder css/ contains a file named style.css. This files contains instructions for styling the page. 
+
+            a. Link the external file in this page. As usual, where you place matters. Unlike JS files, CSS files tend to be placed on the top of the page, because you want the browser to start rendering the content of the page with the appropriate style, rather then updating it later, when the CSS is loaded.
+            Hint: you don't use the <script> tag, but another one.
+
+            b. Make sense of what is going on in here. A CSS rule is componsed by a "selector" and a number styling directives. There are three most basic selectors:
+
+            1. A tag 
+            
+            Example: div { ... }
+
+            The style will be applied to all elements with tag <div>. This selector is not often used because it is too broad. 
+
+            2. An id
+            
+            Example: #below { ... }
+            
+            The style will be applied to the element with ID "below". The use of this selector should also be limited because it leads to less maintainable, slower styling when you habe too many different ids. 
+
+            3. A class:
+
+            Example: .large
+
+            The style will be applied to all elments with class "large". This is how you should define most of your styles. Classes are flexible, reusable, and can be easily combined together.
+
+        -->
+
+        <!-- 
+
+            Exercise 2. Understanding classes.
+            //////////////////////////////////
+
+            The <style> is the equivalent of the linked CSS file, when the CSS file is not linked at all. That is, you write CSS syntax in here. 
+            So, the <style> tag is equivalent to the <script> tag for JS.
+
+            a. Add a <style> tag somewhere on the page. You know already that where you place it matters. Add it after the <link> tag that you imported in the previous exercise. 
+            
+            Copy over the content of the linked CSS inside the <style> tag. This time, set the color of the text inside the element with id "below" to "black".
+
+            b. Checkpoint. Now the external CSS files says that the text inside the div "below" should be red, while the <style> tag says that it should be black. Who wins the argument? And why? This is the magic of the **cascading** style sheets.
+
+        -->
+
+        <!-- 
+
+                     c. Modify the style of the page, by setting the color of the text inside the element with id "below" to "red".
+
+        -->
+
+    </body>
+</html>
