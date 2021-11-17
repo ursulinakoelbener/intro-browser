@@ -50,7 +50,6 @@
 
         </script>
 
-        <!-- Solution to Ex 4. Unpacking the DOM: find your .innerText. -->
         <script>
 
             // Uncomment for step-by-step execution.
@@ -86,29 +85,40 @@
 
         </script>
 
-        <!--  Solution to Ex 5: Unpacking the DOM: thanks querySelector! -->
         <script>
-            // a.
-            let thanks = 'Thanks querySelector!';
-            // Replace text in first span.
-            let myspan = document.querySelector('span');
-            myspan.innerText = thanks;
-            // The same, but more compact:
-            document.querySelector('span').innerText = thanks; 
 
-            // b.
-            thanks += '<strong>AGAIN</strong>';
-            // Replacing all spans and chaining the method with a forEach 
-            // and an arrow function. 
-            document.querySelectorAll('span')
-                    .forEach(span => span.innerHTML = thanks);
+            // Uncomment for step-by-step execution.
+            // debugger;
             
-            // Don't know how to read arrow functions?
-            // span => span.innerHTML = thanks
-            // is equivalent to:
-            // function(span) {
-            //     span.innerHTML = thanks;
-            // }
+            // Returns all spans. 
+            let spans = document.querySelectorAll('span');
+
+            // Ex. b.
+
+            // .innerText displays only text.
+            span1.innerText = '<strong>' + span1.innerHTML + '</strong>';
+
+            // .innerHTML renders HTML and displays it.
+            span2.innerHTML = '<strong>' + span2.innerHTML + '</strong>';
+
+            // Hence .innerText is slightly faster.
+
+            // // This is a global variable that you can access in the console.
+            // let divs = document.getElementsByTagName('div');
+
+            // // The <DIV> tag.
+            // divs[0];
+
+            // // Modify the content of the <DIV> tag with the .innerHTML property.
+
+            // divs[0].innerHTML;
+
+            // divs[0].innerHTML = 'Something else';
+
+            // // Can also specify HTML tags directly.
+
+            // divs[0].innerHTML = '<strong>Something else</strong>';
+
 
         </script>
     </body>
@@ -121,12 +131,10 @@
         Exercise Sheet 2: Scripts
         /////////////////////////
 
-        In here, we learn three fundamental things:
+        In here, we learn two fundamental things:
 
         - How to insert JavaScript code in the page.
         - Some basic JS commands you can run in the browser.
-        - How to debug your JS code in the browser.
-
         
         -->
 
@@ -206,6 +214,7 @@
             Exercise 4. Unpacking the DOM: find your .innerText.
             ////////////////////////////////////////////////////
 
+
            We wanted to remove those "Hello Worlds" from the page, right?
            
            So we need to access the specific elements containing those texts.
@@ -219,26 +228,6 @@
            b. .innerText has a sibling property called .innerHTML. What is the difference between the two? .innerHTML allows to insert HTML tags inside the text to be rendered by the browser. One of the few styling HTML tag is <strong>. What is it doing? Find it out by modifying .innerHTML or .innerText accordingly. 
 
          -->
-
-
-        <!-- 
-
-            Exercise 5. Unpacking the DOM: thanks querySelector!
-            ////////////////////////////////////////////////////
-
-            Exercise 4 was quite cumbersome with the selection of elements on the page. Is it possible that there is no better way?
-
-            There is! The document.querySelector is here to help.
-
-
-            a. Locate the first <span> on the page with the querySelector method. Change its content to "Thanks querySelector!"
-            
-            b. Change the content of ALL spans to "Thanks querySelector AGAIN!",
-            where AGAIN is in bold.
-            hint: .querySelectorAll(). 
-            hint2: .forEach() and arrow function (=>) to make it very compact.
-         
-        -->
        
     </body>
 </html>

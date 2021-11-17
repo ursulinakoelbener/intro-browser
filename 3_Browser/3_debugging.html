@@ -1,0 +1,104 @@
+<html>
+    <title>HTML 101</title>
+    <body>
+        <span>Thanks querySelector <strong>AGAIN</strong></span>
+        <div>
+            <span>Thanks querySelector <strong>AGAIN</strong></span>
+        </div>
+        <script>
+            let name = 'Brendan';
+            let spans = document.querySelectorAll('span');
+            spans.forEach(span => {
+                let text = span.innerHTML;
+                let index = text.indexOf('querySelector');
+                let str = text.substring(0, index) + name + ' ' + 
+                          text.substring(index + 'querySelector'.length);
+                span.innerHTML = str;
+            });
+        </script>
+
+        <!-- Solution to Ex. 2. Bonus. Refactor your code. -->
+        <script>
+                debugger;
+                const thank = (nameOut, nameIn) => {
+                // Get all spans in the page.
+                let spans = document.querySelectorAll('span');
+                // Loop through all the spans.
+                spans.forEach(span => {
+                    let text = span.innerHTML;
+                    // Get the index of the first occurence of nameOut.
+                    let index = text.indexOf(nameOut);
+                    if (index === -1) {
+                        console.log('Nothing to replace');
+                        // Early return.
+                        // This is coding paradigm that avoids creating an else
+                        // branch after the if. We simply exit here and we don't
+                        // execute what comes after.
+                        return;
+                    }
+                    // First part of the string: from 0 to the index, 
+                    // and we concatenate the new name.
+                    let str = text.substring(0, index) + nameIn + ' ';
+                    // Second part of the string: from the index plus the length
+                    // of the name we substitud.
+                    str += text.substring(index + nameOut.length);
+
+                    // Using innerHTML (innerText might lose the HTML tags).
+                    span.innerHTML = str;
+                });
+            };
+
+            thank('Brendan', 'Linus');            
+        </script>
+    </body>
+
+
+        
+        <!--
+        
+            ////////////////////////////
+            Exercise Sheet 3: Debugging
+            ////////////////////////////
+
+            In here, we learn how to debug your JS code in the browser.
+
+            
+            When writing longer and more complex code (but also shorter and simpler code), you sometime want to stop the execution and inspect the state of your variables.
+
+            This process is commonly called step-by-step execution or "debugging".
+        -->
+
+        <!-- 
+
+            Exercise 1. Stop! debugger!
+            ///////////////////////////
+
+            Add a debugger statement as the first line of the script above.
+
+            a. Refresh the page. Nothing happened? Make sure to have the DevTools open when you refresh.
+
+            b. So you managed to stop the execution. Can you manage the debugger interface too? Get familiar with it, and understand the difference between stepping-in and stepping-forward. If you understand it you can also debug step-by-step the body of the forEach's function.
+
+
+         -->
+
+
+        <!-- 
+
+            Exercise 2. Bonus. Refactor your code.
+            //////////////////////////////////////
+
+            If you executed step-by-step the code inside the script above you understand now what it was doing. You also understand that you can improve it a bit. How?
+
+            a. Make your code more general. Create a function that takes two input parameters: a name to replace (before "querySelector") and the replacement (before "Brendan") and accomplishes the same task.
+
+            b. Add more comments. Comments are as important as the code. Make sure to describe what the code is doing.
+            Hint: break down longer lines into smaller chunks.
+
+            And don't forget to get the help of the debugger if you need it.
+         -->
+
+       
+       
+    </body>
+</html>
