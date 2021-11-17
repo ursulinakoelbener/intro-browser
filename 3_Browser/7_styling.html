@@ -2,22 +2,12 @@
      <!--
         
         /////////////////////////
-        Exercise Sheet 4: Styling
+        Exercise Sheet 7: Styling
         /////////////////////////
 
-        We have learned of tags, attributes, and external files.
-        But the page still looked terrible.
-        Now we need to learn how to be stylish.
+        Did you know that there are four ways of styling a page? Because, why not? (Actually, five if you include the CSS inspector in the browser) 
 
-        There are four ways of styling a page, because why not?
-        All involve knowning a little bit of the CSS syntax.
-        
-        More precisely, CSS means Cascading Style Sheet. We will learn what cascading means in these exercises.
-
-        CSS are extremely powerful, can be very large and complex. 
-        Luckily, their syntax is straightforward and intuitive.
-        For a beginner entrypoint to CSS see:
-        https://www.w3schools.com/Css/
+        This is exactly why they are called CSS (Cascading Style Sheet). 
         
     -->
 
@@ -66,45 +56,16 @@
         </div>
         
 
-         <!-- 
-
-            Exercise 1. External CSS Files.
-            ///////////////////////////////
-
-            The folder css/ contains a file named style.css. This files contains instructions for styling the page. 
-
-            a. Link the external file in this page. As usual, where you place matters. Unlike JS files, CSS files tend to be placed on the top of the page, because you want the browser to start rendering the content of the page with the appropriate style, rather then updating it later, when the CSS is loaded.
-            Hint: you don't use the <script> tag, but another one.
-
-            b. Make sense of what is going on in here. A CSS rule is componsed by a "selector" and a number styling directives. There are three most basic selectors:
-
-            1. A tag 
-            
-            Example: div { ... }
-
-            The style will be applied to all elements with tag <div>. This selector is not often used because it is too broad. 
-
-            2. An id
-            
-            Example: #below { ... }
-            
-            The style will be applied to the element with ID "below". The use of this selector should also be limited because it leads to less maintainable, slower styling when you habe too many different ids. 
-
-            3. A class:
-
-            Example: .large
-
-            The style will be applied to all elments with class "large". This is how you should define most of your styles. Classes are flexible, reusable, and can be easily combined together. 
-            
-            c. Modify the style of the page, by setting the color of the text inside the element with id "below" to "red".
-
-        -->
+       
 
         <!-- 
 
             Exercise 2. The <style> tag.
             ////////////////////////////
 
+            We have seen the external CSS file in the previous exercise sheet.
+            Here we learn about the <style> tag.
+                
             The <style> is the equivalent of the linked CSS file, when the CSS file is not linked at all. That is, you write CSS syntax in here. 
             So, the <style> tag is equivalent to the <script> tag for JS.
 
