@@ -1,0 +1,244 @@
+<html>
+    <title>HTML 101</title>
+    <body>
+        <span>Hello World!</span>
+        <div>
+            <span>Hello World AGAIN!</span>
+        </div>
+        <!-- Solution to Ex. 1: The <script> tag. -->
+        <script>
+            let str = "Hello World";
+            console.log(str);
+            alert(str);
+        </script>
+
+        <!-- Solution to Ex. 2: The cosmos at your window. -->
+        <script>
+            window
+            console.log(window.alert);
+
+            var myVar = 1;
+            console.log(window.myVar);
+
+            myvar2 = 2;
+            console.log(window.myVar2);
+
+            let myVar3 = 3;
+            console.log(window.myVar3);
+
+            const myVar4 = 4;
+            console.log(window.myVar4);
+
+        </script>
+
+
+        <!-- Solution to Ex 3. Unpacking the DOM: the whole body. -->
+        <script>
+            
+            // <BODY> tag.
+            console.log(document.body);
+
+            // Array of children elements of the <BODY> tag.
+            console.log(document.body.children);
+            console.log(typeof document.body.children);
+
+            // Print and alert.
+            let nChildren = document.body.children.length;
+            str = 'Inside the body there are ' + nChildren + ' children.';
+            console.log(str);
+            alert(str);
+
+        </script>
+
+        <!-- Solution to Ex 5. Unpacking the DOM: thanks querySelector! -->
+        <script>
+
+            // Uncomment for step-by-step execution.
+            // debugger;
+            
+            // Ex. a.
+
+            // The <SPAN> tag.
+            let span1 = document.body.children[0];
+            // Check the content of the first span.
+            console.log(span1.innerText);
+            // Replace the content of the first span.
+            span1.innerText = 'Something else';
+
+            // The second span is nested inside a DIV.
+            let span2 = document.body.children[1].children[0];
+
+            // Check the content of the first span.
+            console.log(span2.innerText);
+            // Replace the content of the first span.
+            span2.innerText = 'Something else AGAIN';
+        
+            // Ex. b.
+
+            // .innerText displays only text.
+            span1.innerText = '<strong>' + span1.innerHTML + '</strong>';
+
+            // .innerHTML renders HTML and displays it.
+            span2.innerHTML = '<strong>' + span2.innerHTML + '</strong>';
+
+            // Hence .innerText is slightly faster.
+
+
+        </script>
+
+        <!--  Solution to Ex 5: Unpacking the DOM: thanks querySelector! -->
+        <script>
+            // a.
+            let thanks = 'Thanks querySelector!';
+            // Replace text in first span.
+            let myspan = document.querySelector('span');
+            myspan.innerText = thanks;
+            // The same, but more compact:
+            document.querySelector('span').innerText = thanks; 
+
+            // b.
+            thanks += '<strong>AGAIN</strong>';
+            // Replacing all spans and chaining the method with a forEach 
+            // and an arrow function. 
+            document.querySelectorAll('span')
+                    .forEach(span => span.innerHTML = thanks);
+            
+            // Don't know how to read arrow functions?
+            // span => span.innerHTML = thanks
+            // is equivalent to:
+            // function(span) {
+            //     span.innerHTML = thanks;
+            // }
+
+        </script>
+    </body>
+
+
+        
+        <!--
+        
+        /////////////////////////
+        Exercise Sheet 2: Scripts
+        /////////////////////////
+
+        In here, we learn three fundamental things:
+
+        - How to insert JavaScript code in the page.
+        - Some basic JS commands you can run in the browser.
+        - How to debug your JS code in the browser.
+
+        
+        -->
+
+        <!-- 
+
+            Exercise 1. The <script> tag.
+            /////////////////////////////
+
+            The <script> tag contains code to be executed by the browser.
+
+            What code can the browser execute natively? ONLY JavaScript.
+
+            The content of the script tag won't be visualized by the browser.
+
+            Where to place a <script> tag? The web is a free country, so you
+            can place a <script> tag wherever you want on the page. However,
+            it is recommended that you place it at the bottom of your page,
+            just before the closing </body> tag. Why?
+
+            The browser renders / executes the content of the sequentially from
+            start to bottom. You don't want a script to access a non-rendered page and you also don't want to block the rendering of the page while downloading / executing the script. So scripts always at the bottom. Until you learn a trick in an exercise below.
+
+            Add a <script> tag in which:
+            - 1. You define a string. This string is, guess what, "Hello World".
+            - 2. Print the string to console.
+            - 3. Display an alert with the string.
+
+            // Hint: you may use alert() and console.log().
+         -->
+
+
+        <!-- 
+
+            Exercise 2. The cosmos at your window.
+            //////////////////////////////////////
+
+            Enough "hello-worlding". Let's write something more useful in this
+            page. We also want to get rid of "Hello Worlds" in the HTML. To do this, we first need to learn about the DOM (Document Object Model) API.
+
+            But even before the DOM, we need to learn about the window. At the root of everything there is the window object.
+
+            The window object is so fundamental that you don't even need to write its name to access it. It is simply there for you.
+
+            a. Type window in the DevTool console and explore what it contains. The first element should be our friend "alert". So when you invoke alert(), you are effectively typing window.alert(). 
+
+            b. The window object contains all that ever exist "globally". Think of it like a cosmos. You can be part of the cosmos too, if you define a variable like in the good old times with the "var" operator (or if you forget "var" altogether). Check
+            window.nameOfYourVariable.
+
+            c. Now try to define a variable with the newer JS operators (ES6) "let" or "const". Are they part of the cosmos too? Reflect on the mistery of the JS universe.
+
+         -->
+
+        <!-- 
+
+            Exercise 3. Unpacking the DOM: the whole body.
+            //////////////////////////////////////////////
+
+
+            One fundamental object of the window is the document (window.document), which is the DOM.
+
+            The DOM represents whatever is on the page like a tree. Without the DOM, JS would now what is on the page, and would not be able to change it.
+
+            The nice thing is that every element in the DOM tree is represented as a JavaScript object, that we know already how to manipulate.
+
+            Each object has some special built-in properties that facilitate its manipulation. Some properties are common across all elements, others are specific to the type of element we are dealing with (e.g., an in image vs a text).
+
+            a. We could start from the simplest reference in the DOM: the <body> tag of the page. Just type document.body in the DevTool.
+
+
+            b. What's inside the "father" body? Count how many elements the <body> tag contains, and display the result to console and inside an alert (don't forget to nicely format the string). 
+            // Hint: Check the the children property. Of what type is that?
+
+         -->
+
+        <!-- 
+
+            Exercise 4. Unpacking the DOM: find your .innerText.
+            ////////////////////////////////////////////////////
+
+           We wanted to remove those "Hello Worlds" from the page, right?
+           
+           So we need to access the specific elements containing those texts.
+
+           We have already got all the children of <body> in the previous exercise, now we don't want to harm children, but gently changing them into something less "hello wordly". 
+
+           a. Locate which children contain "hello wordly" text and replace it with "something else", modifying the property ".innerText". 
+           // Hint: children are ordered in the way they appear in the HTML.
+           // Hint2: children can have children of their own. 
+
+           b. .innerText has a sibling property called .innerHTML. What is the difference between the two? .innerHTML allows to insert HTML tags inside the text to be rendered by the browser. One of the few styling HTML tag is <strong>. What is it doing? Find it out by modifying .innerHTML or .innerText accordingly. 
+
+         -->
+
+
+        <!-- 
+
+            Exercise 5. Unpacking the DOM: thanks querySelector!
+            ////////////////////////////////////////////////////
+
+            Exercise 4 was quite cumbersome with the selection of elements on the page. Is it possible that there is no better way?
+
+            There is! The document.querySelector is here to help.
+
+
+            a. Locate the first <span> on the page with the querySelector method. Change its content to "Thanks querySelector!"
+            
+            b. Change the content of ALL spans to "Thanks querySelector AGAIN!",
+            where AGAIN is in bold.
+            hint: .querySelectorAll(). 
+            hint2: .forEach() and arrow function (=>) to make it very compact.
+         
+        -->
+       
+    </body>
+</html>
