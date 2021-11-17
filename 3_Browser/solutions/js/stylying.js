@@ -2,11 +2,16 @@
 // debugger;
 
 // Option 4: Modify the style property via JS.
-let divAbove = document.getElementById("above");
+let divAbove = document.querySelector("#above");
 divAbove.style.background = '#CCC';
 divAbove.style.border = '1px solid black';
-// CSS property box-shadow needs to be quoted in JS to 
-// avoid confusion with the minus sign. 
+
+
+// Some CSS property needs to be quoted in JS to 
+// avoid confusion with the minus sign.
+
+divAbove.style['font-size'] = '3rem';
+
 divAbove.style['box-shadow'] = '2px 2px';
 
 // Nicer shadows:

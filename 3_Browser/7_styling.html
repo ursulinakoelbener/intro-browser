@@ -1,71 +1,70 @@
 <html>
-     <!--
+<!--
         
         /////////////////////////
         Exercise Sheet 7: Styling
         /////////////////////////
 
-        Did you know that there are four ways of styling a page? Because, why not? (Actually, five if you include the CSS inspector in the browser) 
+        Did you know that there are four ways of styling a page? Why four? Why not? (actually, five if you include the CSS inspector in the browser) 
 
         This is exactly why they are called CSS (Cascading Style Sheet). 
         
     -->
 
-        <title>Styling</title>
+<title>Styling</title>
 
 
-        <!-- Option 1: Linking an external CSS file -->
-        <link rel="stylesheet" href="./css/style.css" />
+<!-- Option 1: Linking an external CSS file -->
+<link rel="stylesheet" href="./css/style.css" />
 
-        <!-- Option 2: The <STYLE> tag -->
-        <style>
-
-            /* 
+<!-- Option 2: The <STYLE> tag -->
+<style>
+    /* 
               The order in which the styles are applied is
               important. What comes later overwrites any
               previously defined style in conflict.
             */
 
-            .large {
-                font-size: 30px;
-            }
+    .large {
+        font-size: 30px;
+    }
 
-            .centered {
-                display: block;
-                margin: 0 auto;
-                text-align: center;
-            }
+    .centered {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
 
-            /* Overwriting the color set in style.css */
-            #below {
-               color: black;
-            }
+    /* Overwriting the color set in style.css */
+    #below {
+        color: black;
+    }
+</style>
+</head>
 
-        </style>
-    </head>
-    <body>
-        
-        <!-- The class attribute associates one or more classes to elements -->
-        <div id="above" class="large wide">
-           Linus Torvald
-        </div>
+<body>
 
-        <!-- Option 3: the inline "style" attribute --> 
-        <div id="below" class="large centered" style="text-transform: uppercase;">
-           Brendan Eich
-        </div>
-        
+    <!-- The class attribute associates one or more classes to elements -->
+    <div id="above" class="large wide">
+        Linus Torvald
+    </div>
 
-       
+    <!-- Option 3: the inline "style" attribute -->
+    <div id="below" class="large centered" style="text-transform: uppercase;">
+        Brendan Eich
+    </div>
 
-        <!-- 
+
+
+
+    <!-- 
 
             Exercise 2. The <style> tag.
             ////////////////////////////
 
-            We have seen the external CSS file in the previous exercise sheet.
-            Here we learn about the <style> tag.
-                
+            We have seen the external CSS file in the previous Exercise Sheet.
+            Here, we learn about the <style> tag.
+
             The <style> is the equivalent of the linked CSS file, when the CSS file is not linked at all. That is, you write CSS syntax in here. 
             So, the <style> tag is equivalent to the <script> tag for JS.
 
@@ -77,7 +76,7 @@
 
         -->
 
-        <!-- 
+    <!-- 
 
             Exercise 3. Inline styles.
             //////////////////////////
@@ -88,23 +87,73 @@
 
         -->
 
-        <!-- 
+    <!-- 
 
             Exercise 4. JavaScript styling.
             ///////////////////////////////
 
-           You noticed that adding a style attribute
+           You noticed that you can add a style attribute to the HTML elements directly. Does that mean that the corresponding JavaScript objects have a style property? 
+           
+           Yes! By modifying the style property in the object we can add / remove styles to the elements.
+
+           Get the element with id "above" and make it look more like the header of web site. Feel free to give it your own look, or follow the suggestions below.
+           
+           a. Set a backround color.
+
+           b. Add a border.
+
+           c. Drop a shadow around it.
+           Hint: The property box-shadow contains a minus, how to deal with it?
+           
+           d. Make the font size larger. For instance: 3rem. What is a rem? Learn more about units of absolute and relative length here:
+           https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units
+           
+        -->
+
+    <!-- 
+
+            Exercise 5. More on classes.
+            ////////////////////////////
+
+             You noticed that you can add a class attribute to the HTML elements directly. Does that mean that the corresponding JavaScript objects have a class property? 
+             
+             No! In fact, in JS the attribute "class" is mapped to the property "className". Why is that? It's simple, "class" is a reserved word in JavaScript (to create JavaScript classes).
+             
+             a. Create a new class named .disposable inside the <style> tag, and then add it to the <body> element. 
+
+             b. Now remove it from the <body> element.
+
+             c. All easy so far. Now, add a new class to "above" element. Note that the "above" element already has some classes, make sure to not delete those.
+            // Hint: just leave a space...
+
+             d. Now delete the it from the "above" element. You can simply remove it from the className property, but it's not as straightforward as before. Things are not as it used to be. Ah the good old times. And so on...Unless you use the .classList property.
+             https://www.w3schools.com/jsref/prop_element_classlist.asp
+
+            
+              
 
         -->
 
 
-        <script>
-            // Exercise:
-            // Option 4: Modify the style of elements via JS.
-            // Style the element with id "above" to look more like a header.
-            // Hint: all the CSS styles are inside the style property. 
-        </script>
-        <!-- Solution. -->
-        <!-- <script src="./js/stylying.js"></script> -->
-    </body>
+    <!-- 
+
+            Exercise 6. querySelector returns.
+            //////////////////////////////////
+
+            You noticed that the CSS syntax identify the id of an element with the pound sign (#). You remember (vaguely) that the querySelector can also uses pound sign (#) to identify ids.
+
+            Now, if CSS classes uses a dot (.) to identify classes, guess what is the identifier for classes used by querySelector? 
+             
+            That's right, it's the percent sign (%). 
+             
+            Just kidding, it's the dot (.), but you could have expected anything from JavaScript at this point, could you?
+
+            a. Go ahed and use the querySelector to select classes.
+             
+    -->
+
+    <!-- Solution. -->
+    <!-- <script src="./js/stylying.js"></script> -->
+</body>
+
 </html>

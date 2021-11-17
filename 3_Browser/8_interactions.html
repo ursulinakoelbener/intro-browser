@@ -1,0 +1,64 @@
+<html>
+    <!--
+            
+        ///////////////////////////////
+        Exercise Sheet 8: Interactions
+        ///////////////////////////////
+
+        We know about JS, CSS, Classes, we are ready to make some simple interactions!
+    -->
+
+    <title>Interactions</title>
+
+
+    <!-- Option 1: Linking an external CSS file -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Option 2: The <STYLE> tag -->
+    <style>
+        /* 
+                The order in which the styles are applied is
+                important. What comes later overwrites any
+                previously defined style in conflict.
+                */
+
+        .large {
+            font-size: 30px;
+        }
+
+        .centered {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Overwriting the color set in style.css */
+        #below {
+            color: black;
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <!-- The class attribute associates one or more classes to elements -->
+        <div id="above" class="large centered">
+            <button id="linus">Linus Torvald</button>
+        </div>
+
+        <div id="below" class="large centered">
+            <button>Brendan Eich</button>
+        </div>
+
+
+
+
+        <!-- 
+
+                Exercise 2. The <style> tag.
+                ////////////////////////////
+
+        -->
+    </body>
+
+</html>
