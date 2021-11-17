@@ -1,22 +1,17 @@
 <html>
-    <!--
-    
-    ////////////////////////////
-    Exercise Sheet 3: Attributes
-    ////////////////////////////
-
-    Attributes are additional properties assigned to HTML elements. Some have special values, as we will learn here and in the next sheets.
-    
-    -->
-    <title>Attributes</title>
-    
+    <head>
+        <title>Id and Attributes</title>
+    </head>
+  
     <body>
         
         <!-- 
             HTML tags can have attributes.
             A very common attribute is "id", a **unique** identifier
             for the element within the page.
+
         -->
+
         <div id="above" name="Linus" data-name="Someone">
             Linus Torvald
         </div>
@@ -44,15 +39,26 @@
     </body>
 
     <!--
+        
+        ///////////////////////////////////
+        Exercise Sheet 4: External Scripts.
+        ///////////////////////////////////
 
-        Exercise 1. querySelector with id.
+        Now that we have learned that HTML tags can have attributes, we can discover a few important attributes of the <script> tag. 
+    -->
+
+    <!-- 
+
+        Exercise 1. External Scripts
         //////////////////////////////////
 
-        You can select elements by their id. This is by far the fastest way of getting elements from the page into JavaScript. 
-        
-        Modify the content of the above and below <divs> clarifying which names is above and which is below.
-        hint: Use querySelector(#id) where id is...
+        Most of the times you won't write JavaScript code directly inside the HTML page. There are a number of reasons:
 
+        1. It's messier, you wont to separete logic and representation as much as possible (sometimes you even use different editors).
+        2. It makes harder to implement JS workflows, e.g., to compressed or merged together multiple files before being included in a page.
+        3. It can make loading slower (because files are not optimized or because they block loading the rest of the page).
+
+        So you link an external file with the src attribute. There is a file inside the js/ folder named external_scripts.js. Load it in here.
     -->
 
     <!-- 
@@ -76,16 +82,6 @@
         Exercise 2. HTML Dataset
         //////////////////////////////////
 
-        You should avoid adding custom properties to elements to avoid clashes with other HTML properties. The proper way is using the dataset!
-        
-        a. To use a dataset in the HTML add an attribute that begins named
-        data-xxx, where xxx is the name of the property you are interested in.
-
-        b. You can then retrieve the properties from the dataset using the dataset property.
-        Hint: element.dataset.get()
-
-        c. Likewise, you can set properties of the dataset and they are reflected in the HTML (check the Elements tab of DevTools if you don't believe it).
-        
-    -->
+  
 
 </html>
