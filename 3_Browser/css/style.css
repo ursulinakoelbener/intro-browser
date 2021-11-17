@@ -1,14 +1,29 @@
 /* A comment inside a CSS file */
 
+
+body {
+  /* 
+    Specify the font that the browser should use. 
+    If a font is not available, it goes to the next one.
+  */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 /* 
-  A dot followed by name create a class,
-  meaning that the styling instructions
-  will be applied together.
+  Applies to the element with id "below" 
+  (pound sign indicates the id).
 */
+#below {
+  color: red;
+}
+
+/* A dot followed by name create a class that can be applied to any element. */
 
 .large {
     font-size: 30px;
 }
+
+/* Styles can contain multiple rules that will be applied together. */
 
 .centered {
     display: block;
@@ -20,11 +35,3 @@
     margin: 10px;
 }
 
-/* 
-  It is also possible to apply styles to ids
-  using the pound sign.
-*/
-
-#below {
-    color: red;
-}
