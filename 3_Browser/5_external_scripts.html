@@ -1,43 +1,5 @@
 <html>
-    <head>
-        <title>Id and Attributes</title>
-    </head>
-  
-    <body>
-        
-        <!-- 
-            HTML tags can have attributes.
-            A very common attribute is "id", a **unique** identifier
-            for the element within the page.
-
-        -->
-
-        <div id="above" name="Linus" data-name="Someone">
-            Linus Torvald
-        </div>
-
-        <!-- You can break a tag declaration on multiple lines -->
-        <div 
-            id="below">
-           Brendan Eich
-        </div>
-        
-        <script>
-            // Uncomment for step-by-step execution.
-            debugger;
-
-            // Return the element with ID "above".   
-            let above = document.querySelector('#above');
-
-            above.innerHTML += ' is above.';
-
-            let below = document.querySelector('#below');
-
-            below.innerHTML += ' is below.';
-            
-        </script>        
-    </body>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" defer></script>
     <!--
         
         ///////////////////////////////////
@@ -46,6 +8,22 @@
 
         Now that we have learned that HTML tags can have attributes, we can discover a few important attributes of the <script> tag. 
     -->
+    <title>External Scripts</title>
+  
+    <body>
+        
+        <div id="above">
+            Linus Torvald
+        </div>
+
+        <!-- You can break a tag declaration on multiple lines -->
+        <div 
+            id="below">
+           Brendan Eich
+        </div>
+        <!-- Solution to Ex. 1. External Scripts. -->
+        <script src="js/external_scripts.js" async></script>
+    </body>
 
     <!-- 
 
@@ -58,30 +36,36 @@
         2. It makes harder to implement JS workflows, e.g., to compressed or merged together multiple files before being included in a page.
         3. It can make loading slower (because files are not optimized or because they block loading the rest of the page).
 
-        So you link an external file with the src attribute. There is a file inside the js/ folder named external_scripts.js. Load it in here.
+        You can link an external js file with the "src" attribute. There is a file inside the js/ folder named external_scripts.js. Load it in here.
+        Hint: make sure to place it at the bottom, just before </body> otherwise funny things may happen.
+
     -->
 
     <!-- 
 
-        Exercise 2. Accessing attributes
-        //////////////////////////////////
+        Exercise 2. Defer, Async attributes.
+        ////////////////////////////////////
 
-        As we know, HTML elements are objects in JavaScript, meaning that their attributes are properties of these objects.
+        The previous exercise hinted that you should place the script at the bottom, as we know already. However, there are some alternatives.
 
-        a. Verify that the property id and name exist in those objects retrieved in exercise 1. You may use the dot notation (.), as we did before, or try the getAttribute() method. What's the difference? None.
+        Really, I could try explaining what async and defer do in here, but I think it's just easier to look at the illustrations in this superb StackOverflow answer: 
+        https://stackoverflow.com/questions/10808109/script-tag-async-defer
         
+        Perhaps, what I can teach you is how to check whether that is claimed in that answer is true. Open the Network Tab of DevTools to check exactly what is loaded when.
 
-        b. You may also use the setAttribute() method.
-        
-        
+        To make it more interesting, you may download a larger JS file, e.g., the Bootstrap bundle from the Bootstrap CDN: https://www.bootstrapcdn.com/
+
+
     -->
 
     
     <!-- 
 
-        Exercise 2. HTML Dataset
-        //////////////////////////////////
+        Exercise 3. window.onload
+        /////////////////////////
 
-  
+        We know that JavaScript is full of alternatives, so why not yet another way of deferring loading a JS script?
+
+        // window.onload.
 
 </html>
