@@ -3,7 +3,7 @@
 
 // Option 4: Modify the style property via JS.
 let divAbove = document.querySelector("#above");
-divAbove.style.background = '#CCC';
+divAbove.style.background = 'rgb(255 177 177)';
 divAbove.style.border = '1px solid black';
 
 
@@ -11,7 +11,7 @@ divAbove.style.border = '1px solid black';
 // avoid confusion with the minus sign.
 
 divAbove.style['font-size'] = '3rem';
-
+divAbove.style['border-radius'] = '25px';
 divAbove.style['box-shadow'] = '2px 2px';
 
 // Nicer shadows:

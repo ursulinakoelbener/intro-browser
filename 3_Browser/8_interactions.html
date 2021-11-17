@@ -5,59 +5,128 @@
         Exercise Sheet 8: Interactions
         ///////////////////////////////
 
-        We know about JS, CSS, Classes, we are ready to make some simple interactions!
+        The browser environment is ASYNCHRONOUS. If it is all cap, does it mean that I am screaming? Yes. Say it loud: ASYNCHRONOUS.
+
+        From the loading of the HTML, CSS, the scripts...everything is asychronous. Most of all, your mouse clicks are asynchronous.
+
+        To interact with them, you need to stay silent and listen.
+
+        Listen to the sounds of events.
     -->
 
     <title>Interactions</title>
 
-
-    <!-- Option 1: Linking an external CSS file -->
-    <link rel="stylesheet" href="./css/style.css" />
-
-    <!-- Option 2: The <STYLE> tag -->
-    <style>
-        /* 
-                The order in which the styles are applied is
-                important. What comes later overwrites any
-                previously defined style in conflict.
-                */
-
-        .large {
-            font-size: 30px;
-        }
-
-        .centered {
-            display: block;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        /* Overwriting the color set in style.css */
-        #below {
-            color: black;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/style_interactions.css" />
     </head>
 
     <body>
+        <div id="main">
+            <div class="container">
+                <!-- The class attribute associates one or more classes to elements -->
+                <div id="above" class="img-container">
+                    <img data-name="Linus" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F01%2FLinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg%2F220px-LinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg&f=1&nofb=1" />
+                </div>
 
-        <!-- The class attribute associates one or more classes to elements -->
-        <div id="above" class="large centered">
-            <button id="linus">Linus Torvald</button>
+                <div id="below" class="img-container">
+                    <img data-name="Brendan" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.welt.de%2Fimg%2Fwirtschaft%2Fwebwelt%2Fmobile126347555%2F0372502857-ci102l-w1024%2FMozilla.jpg&f=1&nofb=1" />
+                </div>
+            </div>
+        </div>
+        
+        <div id="who" class="container">
+            Which one is Brendan Eich?
         </div>
 
-        <div id="below" class="large centered">
-            <button>Brendan Eich</button>
+        <div id="counter" class="container">
+           <table>
+               <thead>
+                   <tr>
+                       <th>Correct</th><th>Wrong</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr>
+                       <td id="correct-counter"></td>
+                       <td id="wrong-counter"></td>
+                   </tr>
+               </tbody>
+            </table>
         </div>
 
+        <!-- <script>
+            let above = document.querySelector('#above img');
+            above.onclick = () => alert('Try again.');
+
+            let below = document.querySelector('#below img');
+            below.onclick = () => alert('Correct! You are a true Brendan\'s fan!');
+
+        </script> -->
+
+        <!-- <script>
+            let firstContainer = document.querySelector('#main .container');
+
+            firstContainer.onclick = event => {
+                // This is the element that was clicked.
+                let target = event.target;
+                
+                // Check the dataset.
+                if (target.dataset.name === 'Brendan') {
+                    alert('Correct! You are a true Brendan\'s fan!'); 
+                }
+                else {
+                    alert('Try again.');
+                }
+            };
+        </script> -->
 
 
+        <!-- <script>
+            let firstContainer = document.querySelector('#main .container');
+
+            firstContainer.onmouseover = event => {
+                // This is the element that was clicked.
+                let target = event.target;
+
+                // Check the dataset.
+                if (target.dataset.get('name') === 'Brendan') {
+                    alert('Yeah!');
+                }
+                else {
+                    alert('Correct! You are a true Brendan\'s fan!');
+                }
+            };
+        </script> -->
+
+        <script>
+            let firstContainer = document.querySelector('#main .container');
+
+            const updateCounter = correct => {
+                let id = (correct ? 'correct' : 'wrong') + '-counter';
+                let counter = document.querySelector(`#${id}`);
+                let currentValue = counter.innerText || 0;
+                counter.innerText = ++currentValue;
+            }
+
+            firstContainer.onclick = event => {
+                // This is the element that was clicked.
+                let target = event.target;
+                // Check the dataset.
+                let res = target.dataset.name === 'Brendan';
+                // Update counter.
+                updateCounter(res);
+            };
+        </script>
 
         <!-- 
 
-                Exercise 2. The <style> tag.
-                ////////////////////////////
+            Exercise 1. OnClick Listeners.
+            //////////////////////////////
 
+            The most commonly used listener, is the onclick listener.
+            It waits for a click somewhere on the page, then it fires a function. So all you need to create an event listener is an element and a function.
+
+
+            
         -->
     </body>
 
