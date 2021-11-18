@@ -14,40 +14,8 @@
 <title>Styling</title>
 
 
-<!-- Option 1: Linking an external CSS file -->
 <link rel="stylesheet" href="./css/style.css" />
 
-<!-- Option 2: The <STYLE> tag -->
-<style>
-    /* 
-              The order in which the styles are applied is
-              important. What comes later overwrites any
-              previously defined style in conflict.
-            */
-
-    .large {
-        font-size: 30px;
-    }
-
-    .centered {
-        display: block;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    /* Overwriting the color set in style.css */
-    #below {
-        color: black;
-    }
-
-    body {
-        background:
-            linear-gradient(63deg, #999 23%, transparent 23%) 7px 0,
-            linear-gradient(63deg, transparent 74%, #999 78%),
-            linear-gradient(63deg, transparent 34%, #999 38%, #999 58%, transparent 62%),#444;
-        background-size: 16px 48px;
-    }
-</style>
 </head>
 
 <body>
@@ -58,16 +26,14 @@
     </div>
 
     <!-- Option 3: the inline "style" attribute -->
-    <div id="below" class="large centered" style="text-transform: uppercase;">
+    <div id="below" class="large centered">
         Brendan Eich
     </div>
 
 
-
-
     <!-- 
 
-            Exercise 2. The <style> tag.
+            Exercise 1. The <style> tag.
             ////////////////////////////
 
             We have seen the external CSS file in the previous Exercise Sheet.
@@ -86,7 +52,7 @@
 
     <!-- 
 
-            Exercise 3. Inline styles.
+            Exercise 2. Inline styles.
             //////////////////////////
 
             You can also add a "style" attribute directly to a tag. This attribute is the closest to the tag, and it has priority over both external CSS and <style> tags.
@@ -97,7 +63,7 @@
 
     <!-- 
 
-            Exercise 4. JavaScript styling.
+            Exercise 3. JavaScript styling.
             ///////////////////////////////
 
            You noticed that you can add a style attribute to the HTML elements directly. Does that mean that the corresponding JavaScript objects have a style property? 
@@ -122,7 +88,7 @@
 
         <!-- 
 
-            Exercise 5. Good artists borrow, great artists steal.
+            Exercise 4. Good artists borrow, great artists steal.
             /////////////////////////////////////////////////////
 
             This quote was favorite of Steve Jobs but he but he was probably (mis)quoting Pablo Picasso who said "Lesser artists borrow; great artists steal" – who in turn might be rephrasing Igor Stravinsky, but both sayings may well originate in T. S. Eliot’s dictum: "Immature poets imitate; mature poets steal; bad poets deface what they take, and good poets make it into something better, or at least something different. The good poet welds his theft into a whole of feeling which is unique, utterly different than that from which it is torn."
@@ -184,8 +150,6 @@
              
     -->
 
-    <!-- Solution. -->
-    <script src="./js/styling.js"></script>
 </body>
 
 </html>

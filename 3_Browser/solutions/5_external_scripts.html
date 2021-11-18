@@ -21,7 +21,27 @@
             id="below">
            Brendan Eich
         </div>
-      
+        <!-- Solution to Ex. 1. External Scripts. -->
+        <script src="js/external_scripts.js" async></script>
+
+         <!-- Solution to Ex. 2. Defer, Async. -->
+         <script src="js/external_scripts.js" async></script>
+
+         <!-- Solution to Ex. 3. Bonus. window.onload -->
+         <script>
+             // Global vs local variables in code wrapped in functions.
+             window.global = 0;
+             window.onload = function() {
+                let local = 0;
+                console.log('I am executed only after the page loaded');
+                // Increment both local and global variables.
+                global++;
+                local++;
+             };
+             console.log(global);
+            // Throws.
+            //  console.log(local);
+         </script>
     </body>
 
     <!-- 
