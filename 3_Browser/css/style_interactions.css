@@ -72,7 +72,6 @@ body {
 /* Popup */
 
   
-  
   .popup::after {
     content: "";
     position: absolute;
@@ -86,7 +85,7 @@ body {
 
 .popup {
     position: absolute;
-    visibility: hidden;
+    /* visibility: hidden; */
     font-size: 1em;
     border: 5px solid bisque;
     background: white;
@@ -94,13 +93,7 @@ body {
     padding: 3px 10px;
 }
 
-@keyframes appear {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-}
 
 .popup .show {
     visibility: visible;
-    /* -webkit-animation: fadeIn 1s; */
-    /* animation: appear 1s; */
-  }
+}

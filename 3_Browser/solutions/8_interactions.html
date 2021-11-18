@@ -1,0 +1,276 @@
+<html>
+    <!--
+            
+        ///////////////////////////////
+        Exercise Sheet 8: Interactions
+        ///////////////////////////////
+
+        The browser environment is ASYNCHRONOUS. If it is all cap, does it mean that I am screaming? Yes. Say it loud: ASYNCHRONOUS.
+
+        From the loading of the HTML, CSS, the scripts...everything is asychronous. Most of all, your mouse clicks are asynchronous.
+
+        To interact with them, you need to stay silent and listen.
+
+        Listen to the sounds of events.
+    -->
+
+    <title>Interactions</title>
+
+    <link rel="stylesheet" href="./css/style_interactions.css" />
+    </head>
+
+    <body>
+        <div id="main">
+            <div class="container">
+                <!-- The class attribute associates one or more classes to elements -->
+                <div id="above" class="img-container">
+                    <span class="popup" style="display: none">Pick Me!</span>
+                    <img data-name="Linus" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F01%2FLinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg%2F220px-LinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg&f=1&nofb=1" />
+                </div>
+
+                <div id="below" class="img-container">
+                    <span class="popup" style="display: none">Pick Me!</span>
+                    <img data-name="Brendan" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.welt.de%2Fimg%2Fwirtschaft%2Fwebwelt%2Fmobile126347555%2F0372502857-ci102l-w1024%2FMozilla.jpg&f=1&nofb=1" />
+                   
+                </div>
+            </div>
+        </div>
+        
+        <div id="who" class="container">
+            Which one is Brendan Eich?
+        </div>
+
+        <!-- For Ex. 3. -->
+        <!-- <div id="counter" class="container">
+           <table>
+               <thead>
+                   <tr>
+                       <th>Correct</th><th>Wrong</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr>
+                       <td id="correct-counter">0</td>
+                       <td id="wrong-counter">0</td>
+                   </tr>
+               </tbody>
+            </table>
+        </div> -->
+
+        <!-- Solution to Ex. 1. Become a True Brendan's Fan.  -->
+        <!-- <script>
+            let above = document.querySelector('#above img');
+            above.onclick = () => alert('Try again.');
+
+            let below = document.querySelector('#below img');
+            below.onclick = () => alert('Correct! You are a true Brendan\'s fan!');
+
+        </script> -->
+
+        <!-- Solution to Ex. 2. Bubbling Up.  -->
+        <!-- <script>
+            let firstContainer = document.querySelector('#main .container');
+
+            firstContainer.onclick = event => {
+                // This is the element that was clicked.
+                let target = event.target;
+                
+                // Check the dataset.
+                if (target.dataset.name === 'Brendan') {
+                    alert('Correct! You are a true Brendan\'s fan!'); 
+                }
+                else {
+                    alert('Try again.');
+                }
+            };
+        </script> -->
+
+        <!-- Solution to Ex. 3. Keeping Stats.  -->
+        <!-- <script>
+            let firstContainer = document.querySelector('#main .container');
+
+            const updateCounter = correct => {
+                let id = (correct ? 'correct' : 'wrong') + '-counter';
+                let counter = document.querySelector(`#${id}`);
+                let currentValue = counter.innerText || 0;
+                counter.innerText = ++currentValue;
+            };
+
+            firstContainer.onclick = event => {
+                // This is the element that was clicked.
+                let target = event.target;
+                // Check the dataset.
+                let res = target.dataset.name === 'Brendan';
+                // Update counter.
+                updateCounter(res);
+            };
+        </script> -->
+
+    <!-- Solution to Ex. 4. Sounds On.  -->
+    <!-- <script>
+        let firstContainer = document.querySelector('#main .container');
+
+        const updateCounter = correct => {
+            let id = (correct ? 'correct' : 'wrong') + '-counter';
+            let counter = document.querySelector(`#${id}`);
+            let currentValue = counter.innerText || 0;
+            counter.innerText = ++currentValue;
+        };
+
+        const playSound = correct => {
+            let file;
+            if (correct) file = 'success-fanfare-trumpets-6185'; 
+            else file = 'jews_harp_boing-7111';
+
+            try {
+                let audio = new Audio(`sounds/${file}.mp3`);
+                audio.play();
+            }
+            catch(e) {
+                console.log('cannot play sounds in this browser :(');
+            }
+        };
+
+        firstContainer.onclick = event => {
+            // This is the element that was clicked.
+            let target = event.target;
+            // Check the dataset.
+            let res = target.dataset.name === 'Brendan';
+            // Update counter.
+            updateCounter(res);
+            // Play sound.
+            playSound(res);
+        };
+    </script>  -->
+
+
+        <!-- Solution to Ex. 5. Advanced. Pick Me!  -->
+        <!-- <script>
+            let above = document.querySelector('#above img');
+            above.onmouseenter = () => {
+                let el = document.querySelector('#below span');
+                el.style.display = '';
+                setTimeout(() => el.style.display = 'none', 800);
+            };
+
+            let below = document.querySelector('#below img');
+            
+            below.onmouseenter = () => {
+                let el = document.querySelector('#above span');
+                el.style.display = '';
+                setTimeout(() => el.style.display = 'none', 800);
+            };
+
+        </script>  -->
+
+        <!-- 
+
+            Exercise 1. Become a True Brendan's Fan.
+            ////////////////////////////////////////
+
+            The most commonly used listener, is the onclick listener.
+            It waits for a click somewhere on the page, then it fires a function. So all you need to create an event listener is an element and a function.
+
+            Listen to click on each of the two images on this page and display an alert saying:
+
+            - "Try again", if the image selected is NOT Brendan Eich.
+            
+            - "Correct! You are a true Brendan's fan!", otherwise
+        -->
+
+        <!-- 
+
+            Exercise 2. Bubbling Up.
+            ////////////////////////
+
+           Events bubble up. Sounds funny, what is it?
+
+           It means that if an event is not caught at child element, it is emitted on the parent element, and so on until window.
+
+           Sometimes, it is more convenient (and better performing) to register only one event listener on the parent element, and then checking which child originated it. You can do this by looking at the "target" property of the event.
+
+           Now, rewrite exercise 1 with only one event listener.
+           Hint: the event is passed as an object to the listener.
+        
+        -->
+
+        <!-- 
+
+            Exercise 3. Keeping Stats.
+            //////////////////////////
+
+            Let's keep a counter of how many times we clicked on the right or wrong image and display the totals on the page in real time.
+
+            a. For this, you need to update the HTML a bit. Uncomment the lines:
+
+                 <div id="counter" class="container"> ... </div>
+
+            For more info about the <table> tag see:
+            https://www.w3schools.com/tags/tag_table.asp
+
+
+            b. Now define two global variables, each counting the clicks on each image, and make sure to update them at every click. The current value of those variables should be displayed on the page as well.
+            
+        -->
+
+        <!-- 
+
+            Exercise 4. Sound On!
+            //////////////////////
+
+           This excercise is already quite ridiculous, so why not adding some sounds?
+            
+            You may use the files in sounds/ for this purpose.
+
+            Here are the credits:
+            // https://pixabay.com/music/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=7111
+
+            // https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=6185
+
+            And you may use the Audio object.
+        
+            let audio = new Audio(file);
+            audio.play();
+        
+            But not every browser supports it, so make sure to try and catch it.
+            https://caniuse.com/?search=Audio
+        -->
+
+        <!-- 
+
+            Exercise 5. Advanced. Pick Me!
+            //////////////////////////////
+
+           Right when you thought it could not get more ridiculous, for the grand finale we want display a popup message on the images saying
+
+           "Pick Me!"
+
+           If the user mouse over the OTHER image.
+            
+           Notice that there was already a hidden <span> on the page for this purpose. The span is styled already in the CSS. All you need to do is:
+            
+           - register a "onmouseenter" event on the images
+
+           - the listener will toggle the visibility of the span
+            Hint: style.display
+
+           - after a small amount of time (less than a sec), the span returns invisibile.
+           Hint: setTimeout
+
+           For inpiration about mouse over:
+           https://www.hongkiat.com/blog/websites-creative-mouse-over-effects/
+           
+        -->
+
+        <!-- 
+
+        You finished this Exercise Sheet!
+        //////////////////////////////////
+
+        Great! If you can't get enough of Brendan go to the next Exercise Sheet.
+        
+        -->
+
+    </body>
+
+</html>
