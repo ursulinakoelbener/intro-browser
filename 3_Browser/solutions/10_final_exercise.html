@@ -34,6 +34,8 @@
         9. The log entries should be appended as items of an unordered list.
         Hint: Tags <ul> and <li>.
 
+        10. This is a great exercise to learn how to organize your code in separate functions, each of which carry out a well defined task.
+
     -->
 
     <title>Final Exercise</title>
@@ -84,18 +86,28 @@
 
 
         <script>
-             
-            const formatServerResponse = response => {
-                let date = new Date().toUTCString();
-                let res = response.err ? 'Failure' : 'Success';
-                return `<span style="font-size: medium">${date}: ${res}</span>`;
+
+            // Simulate sending data to server.
+            ///////////////////////////////////
+
+            const sendToServer = (subject, text, signature, handleResponse) => {
+                // Simulate sending to server.
+
+                setTimeout(() => {
+
+                    // debugger;
+
+                    // Get response from server.
+                    let response = serverReplies(subject, text, signature);
+                    
+                    // Handle response with a callback.
+                    handleResponse(response);
+
+                }, 1000);
             };
 
-            const isValidText = text => text.length > 10;
-
-            const parseReply = reply => {
-                return JSON.parse(reply);
-            };
+            // Server functions.
+            ////////////////////
 
             const isServerError = subject => {
                 let prob;
@@ -108,10 +120,44 @@
             const serverReplies = (subject, text, signature) => {
                 let err = isServerError(subject);
                 let response = { err: err };
+                // Stringify response, as often happens in real-world.
                 response = JSON.stringify(response);
                 return response;
             };
 
+            // Handle server response functions.
+            ////////////////////////////////////
+
+            const formatServerResponse = response => {
+                let date = new Date().toUTCString();
+                let res = response.err ? 'Failure' : 'Success';
+                return `<span style="font-size: medium">${date}: ${res}</span>`;
+            };
+
+            const isValidText = text => text.length > 10;
+
+            const parseReply = reply => {
+                return JSON.parse(reply);
+            };
+
+            const addLogEntry = response => {
+                let diary = document.querySelector('#diary');
+                // Make sure it is visible.
+                diary.style.display = '';
+
+                // Search with querySelector within diary.
+                let ul = diary.querySelector('ul');
+                
+                // A new list item.
+                let li = document.createElement('li');
+                let formattedResponse = formatServerResponse(response);
+                li.innerHTML = formattedResponse;
+                ul.appendChild(li);
+            };
+
+
+            // This function will be passed as a callback to 
+            // the sendToServer function.
             const handleResponse = serializedResponse => {
                 let response;
                 
@@ -131,36 +177,8 @@
                 addLogEntry(response);
             };
 
-            const addLogEntry = response => {
-                let diary = document.querySelector('#diary');
-                // Make sure it is visible.
-                diary.style.display = '';
-
-                // Search with querySelector within diary.
-                let ul = diary.querySelector('ul');
-                
-                // A new list item.
-                let li = document.createElement('li');
-                let formattedResponse = formatServerResponse(response);
-                li.innerHTML = formattedResponse;
-                ul.appendChild(li);
-            };
-
-            const sendToServer = (subject, text, signature, handleResponse) => {
-                // Simulate sending to server.
-
-                setTimeout(() => {
-
-                    // debugger;
-
-                    // Get response from server.
-                    let response = serverReplies(subject, text, signature);
-                    
-                    // Handle response with a callback.
-                    handleResponse(response);
-
-                }, 1000);
-            };
+            // UI functions.
+            ////////////////
 
             const textarea = document.querySelector('#brendan-text');
             const select = document.querySelector('#brendan-subject');
@@ -184,7 +202,7 @@
                 input.disabled = !on;
             };
 
-            // Survey about feelings.
+            // On submit.
             document.getElementById('send').onclick = event => {
                 
                 let text = textarea.value;
@@ -208,24 +226,7 @@
                 
                 sendToServer(subject, text, signature, handleResponse);
             }
-        </script>
-
-
-        <!-- 
-
-            Exercise 1. Capture the inputs.
-            //////////////////////////////
-
-        -->
-
-        <!-- 
-
-            Exercise 2. Write the letter.
-            //////////////////////////////
-
-        -->
-
-        
+        </script>        
 
     </body>
 

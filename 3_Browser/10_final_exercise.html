@@ -13,7 +13,7 @@
 
         2. If validation fails, color the texarea red and display a warning (an alert is fine). Upon typing again in the textarea, remove warnings and reset default colors. 
 
-        3. If the text is validated, wait 5 seconds for a reply from the simulated server.
+        3. If the text is validated, wait 2 seconds for a reply from the simulated server.
         Hint: setTimeout().
         
         4. While waiting all forms must be disabled.
@@ -33,6 +33,8 @@
 
         9. The log entries should be appended as items of an unordered list.
         Hint: Tags <ul> and <li>.
+
+        10. This is a great exercise to learn how to organize your code in separate functions, each of which carry out a well defined task.
 
     -->
 
@@ -84,44 +86,43 @@
 
 
         <script>
-              
-            const formatMsg = (subject, text, signature) => {
-                let out = [ 
-                    'Yours', 'Truly', 'So long', 'With deference', 'Adios',
-                    'Uf wiederluege'
-                ];
-                out = out[Math.floor(Math.random()*out.length)];
 
-                let date = new Date().toUTCString();
+            // Simulate sending data to server.
+            ///////////////////////////////////
 
-                signature = signature || 'Anonymous';
+            const sendToServer = (subject, text, signature, handleResponse) => {
+                // Simulate sending to server.
 
-                return `<span style="font-size: medium">${date}</span><br><br>
-                           <strong>${subject}</strong><br><br>
-                           Dear Brendan,<br><br>
-                           ${text}<br><br>
-                           ${out},<br>
-                           ${signature}<br>
-                           <hr>
-                           <br>`; 
+                setTimeout(() => {
+
+                    // debugger;
+
+                    // TODO: compute server reply.
+                    
+                    // Handle response with a callback.
+                    handleResponse(response);
+
+                }, 2000);
             };
 
-            // Survey about feelings.
+            // Server functions.
+            ////////////////////
+
+
+            // Handle server response functions.
+            ////////////////////////////////////
+
+
+            // UI functions.
+            ////////////////
+
+
+            // On submit.
             document.getElementById('send').onclick = event => {
-                // let q = document.querySelector; 
-
-                let subject = document.querySelector('#brendan-subject').value;
-                let text = document.querySelector('#brendan-text').value;
-                let signature = document.querySelector('#brendan-sign').value;
-
                 
-                let diary = document.querySelector('#diary');
-                diary.style.display = '';
+                // TODO: Get and validate inputs.
                 
-                let div = document.createElement('div');
-                
-                div.innerHTML = formatMsg(subject, text, signature);
-                diary.appendChild(div);
+                sendToServer(subject, text, signature, handleResponse);
             }
         </script>
 
