@@ -59,44 +59,8 @@
 
         <script>
               
-            const formatMsg = (subject, text, signature) => {
-                let out = [ 
-                    'Yours', 'Truly', 'So long', 'With deference', 'Adios',
-                    'Uf wiederluege'
-                ];
-                out = out[Math.floor(Math.random()*out.length)];
+           // TODO: Your solution here.
 
-                let date = new Date().toUTCString();
-
-                signature = signature || 'Anonymous';
-
-                return `<span style="font-size: medium">${date}</span><br><br>
-                           <strong>${subject}</strong><br><br>
-                           Dear Brendan,<br><br>
-                           ${text}<br><br>
-                           ${out},<br>
-                           ${signature}<br>
-                           <hr>
-                           <br>`; 
-            };
-
-            // Survey about feelings.
-            document.getElementById('send').onclick = event => {
-                // let q = document.querySelector; 
-
-                let subject = document.querySelector('#brendan-subject').value;
-                let text = document.querySelector('#brendan-text').value;
-                let signature = document.querySelector('#brendan-sign').value;
-
-                
-                let diary = document.querySelector('#diary');
-                diary.style.display = '';
-                
-                let div = document.createElement('div');
-                
-                div.innerHTML = formatMsg(subject, text, signature);
-                diary.appendChild(div);
-            }
         </script>
 
 
@@ -106,7 +70,7 @@
             ///////////////////////////////
 
             When the user clicks the submit button, capture the values of all the inputs in this page and display them to console.
-            // Hint: .value. 
+            // Hint: Add an onclick listener and check the .value properties. 
 
         -->
 
