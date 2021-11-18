@@ -1,0 +1,130 @@
+<html>
+    <!--
+    
+    ////////////////////////////
+    Exercise Sheet 3: Attributes
+    ////////////////////////////
+
+    Attributes are additional properties assigned to HTML elements. Some have special values, as we will learn here and in the next sheets.
+    
+    -->
+    <title>Attributes</title>
+    
+    <body>
+        
+        <!-- 
+            HTML tags can have attributes.
+            A very common attribute is "id", a **unique** identifier
+            for the element within the page.
+        -->
+        <div id="above">
+            Linus Torvald
+        </div>
+
+        <!-- You can break a tag declaration on multiple lines -->
+        <div 
+            id="below">
+           Brendan Eich
+        </div>
+        
+        <!-- Solution to Ex 1. querySelector with id -->
+        <script>
+            // Uncomment for step-by-step execution.
+            debugger;
+
+            // Return the element with ID "above".   
+            let above = document.querySelector('#above');
+            // let above = document.getElementById('above');
+
+            above.innerHTML += ' is above.';
+
+            let below = document.querySelector('#below');
+            // let below = document.getElementById('below');
+
+            below.innerHTML += ' is below.';
+            
+        </script>
+        
+            <!-- Solution to Ex 2. getElementById -->
+            <script>
+                // Uncomment for step-by-step execution.
+                debugger;
+    
+                // Return the element with ID "above".   
+                let above = document.querySelector('#above');
+                // let above = document.getElementById('above');
+    
+                above.innerHTML += ' is above.';
+    
+                let below = document.querySelector('#below');
+                // let below = document.getElementById('below');
+    
+                below.innerHTML += ' is below.';
+                
+            </script>   
+    </body>
+
+    <!--
+
+        Exercise 1. querySelector with id.
+        //////////////////////////////////
+
+        You can select elements by their id. This is by far the fastest way of getting elements from the page into JavaScript. 
+        
+        Modify the content of the above and below <divs> clarifying which names is above and which is below.
+        hint: Use querySelector(#id) where id is...
+
+    -->
+
+
+    <!--
+
+        Exercise 2. Bonus. getElementById.
+        ///////////////////////////
+
+        An alternative often used, albeit less flexible, is
+        document.getElementById()  
+    
+        a. Repeat exercise 1 with the getElementById method.
+
+        b. An even less commonly used method is:
+        document.getElementsByTagName(). No exercise, just know about it.
+    -->
+
+    <!-- 
+
+        Exercise 3. Accessing attributes
+        //////////////////////////////////
+
+        As we know, HTML elements are objects in JavaScript, meaning that their attributes are properties of these objects.
+
+        a. Verify that the property id exist in those objects retrieved in exercise 1. You may use the dot notation (.), as we did before, or try the getAttribute() method. What's the difference? None, in this case.
+        
+        b. Now, add a new property "foo" via the dot notation (.) and check if this is added to the HTML in the Elements tab of DevTools. Was it? Only some properties that are meaningful for the browser are added when using the dot notation. However, those custom properties remain in the JavaScript objects.  
+        Now try may also use the setAttribute() method instead. Any change?
+        
+    -->
+
+    
+    <!-- 
+
+        Exercise 4. HTML Dataset
+        ////////////////////////
+
+        You should avoid adding custom properties to elements to avoid clashes with other HTML properties. The proper way is using the dataset!
+        https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset
+
+        a. To use a dataset in the HTML add an attribute that begins named
+        data-xxx, where xxx is the name of the property you are interested in.
+
+        b. You can then retrieve the properties from the dataset using the dataset property.
+        Hint: element.dataset.get()
+
+        c. Likewise, you can set properties of the dataset and they are reflected in the HTML (check the Elements tab of DevTools if you don't believe it).
+        Hint: element.dataset.set()
+
+        
+        
+    -->
+
+</html>
