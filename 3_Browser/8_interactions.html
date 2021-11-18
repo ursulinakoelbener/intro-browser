@@ -24,11 +24,14 @@
             <div class="container">
                 <!-- The class attribute associates one or more classes to elements -->
                 <div id="above" class="img-container">
+                    <span class="popup">Pick Me!</span>
                     <img data-name="Linus" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F01%2FLinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg%2F220px-LinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg&f=1&nofb=1" />
                 </div>
 
                 <div id="below" class="img-container">
+                    <span class="popup">Pick Me!</span>
                     <img data-name="Brendan" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.welt.de%2Fimg%2Fwirtschaft%2Fwebwelt%2Fmobile126347555%2F0372502857-ci102l-w1024%2FMozilla.jpg&f=1&nofb=1" />
+                   
                 </div>
             </div>
         </div>
@@ -46,8 +49,8 @@
                </thead>
                <tbody>
                    <tr>
-                       <td id="correct-counter"></td>
-                       <td id="wrong-counter"></td>
+                       <td id="correct-counter">0</td>
+                       <td id="wrong-counter">0</td>
                    </tr>
                </tbody>
             </table>
@@ -80,23 +83,6 @@
         </script> -->
 
 
-        <!-- <script>
-            let firstContainer = document.querySelector('#main .container');
-
-            firstContainer.onmouseover = event => {
-                // This is the element that was clicked.
-                let target = event.target;
-
-                // Check the dataset.
-                if (target.dataset.get('name') === 'Brendan') {
-                    alert('Yeah!');
-                }
-                else {
-                    alert('Correct! You are a true Brendan\'s fan!');
-                }
-            };
-        </script> -->
-
         <script>
             let firstContainer = document.querySelector('#main .container');
 
@@ -105,7 +91,21 @@
                 let counter = document.querySelector(`#${id}`);
                 let currentValue = counter.innerText || 0;
                 counter.innerText = ++currentValue;
-            }
+            };
+
+            const playSound = correct => {
+                let file;
+                if (correct) file = 'success-fanfare-trumpets-6185'; 
+                else file = 'jews_harp_boing-7111';
+
+                try {
+                    let audio = new Audio(`sounds/${file}.mp3`);
+                    audio.play();
+                }
+                catch(e) {
+                    console.log('cannot play sounds in this browser :(');
+                }
+            };
 
             firstContainer.onclick = event => {
                 // This is the element that was clicked.
@@ -114,9 +114,35 @@
                 let res = target.dataset.name === 'Brendan';
                 // Update counter.
                 updateCounter(res);
+                // Play sound.
+                playSound(res);
             };
         </script>
 
+
+        <script>
+            let timeouts = {};
+            let above = document.querySelector('#above img');
+            above.onmouseenter = () => {
+                debugger
+                let el = document.querySelector('#below span');
+                el.classList.add('show');
+                // setTimeout(() => el.classList.remove('show'), 600);
+            };
+
+            let below = document.querySelector('#below img');
+            
+            below.onmouseenter = () => {
+                debugger
+                let el = document.querySelector('#above span');
+                el.classList.add('show');
+                // setTimeout(() => el.classList.remove('show'), 600);
+            };
+        </script>
+
+<!-- Music from <a href="https://pixabay.com/music/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=7111">Pixabay</a> -->
+
+<!-- Music from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=6185">Pixabay</a> -->
         <!-- 
 
             Exercise 1. OnClick Listeners.
@@ -126,7 +152,7 @@
             It waits for a click somewhere on the page, then it fires a function. So all you need to create an event listener is an element and a function.
 
 
-            
+            https://www.hongkiat.com/blog/websites-creative-mouse-over-effects/
         -->
     </body>
 
