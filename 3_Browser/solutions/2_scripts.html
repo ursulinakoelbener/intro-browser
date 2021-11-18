@@ -17,6 +17,86 @@
         <div>
             <span>Hello World AGAIN!</span>
         </div>
+        <!-- Solution to Ex. 1: The <script> tag. -->
+        <script>
+            let str = "Hello World";
+            console.log(str);
+            alert(str);
+        </script>
+
+        <!-- Solution to Ex. 2: The cosmos at your window. -->
+        <script>
+            window
+            console.log(window.alert);
+
+            var myVar = 1;
+            console.log(window.myVar);
+
+            myvar2 = 2;
+            console.log(window.myVar2);
+
+            let myVar3 = 3;
+            console.log(window.myVar3);
+
+            const myVar4 = 4;
+            console.log(window.myVar4);
+
+        </script>
+
+
+        <!-- Solution to Ex 3. Unpacking the DOM: the whole body. -->
+        <script>
+            
+            // <BODY> tag.
+            console.log(document.body);
+
+            // Array of children elements of the <BODY> tag.
+            console.log(document.body.children);
+            console.log(typeof document.body.children);
+
+            // Print and alert.
+            let nChildren = document.body.children.length;
+            str = 'Inside the body there are ' + nChildren + ' children.';
+            console.log(str);
+            alert(str);
+
+        </script>
+
+        <!-- Solution to Ex 4. Unpacking the DOM: find your .innerText. -->
+        <script>
+
+            // Uncomment for step-by-step execution.
+            // debugger;
+            
+            // Ex. a.
+
+            // The <SPAN> tag.
+            let span1 = document.body.children[0];
+            // Check the content of the first span.
+            console.log(span1.innerText);
+            // Replace the content of the first span.
+            span1.innerText = 'Something else';
+
+            // The second span is nested inside a DIV.
+            let span2 = document.body.children[1].children[0];
+
+            // Check the content of the first span.
+            console.log(span2.innerText);
+            // Replace the content of the first span.
+            span2.innerText = 'Something else AGAIN';
+        
+            // Ex. b.
+
+            // .innerText displays only text.
+            span1.innerText = '<strong>' + span1.innerHTML + '</strong>';
+
+            // .innerHTML renders HTML and displays it.
+            span2.innerHTML = '<strong>' + span2.innerHTML + '</strong>';
+
+            // Hence .innerText is slightly faster.
+
+
+        </script>
 
     </body>
 

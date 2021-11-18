@@ -1,50 +1,116 @@
+<!DOCTYPE HTML>
 <html>
-    <head>
-        <title>HTML 101</title>
-    </head>
+    <title>HTML 101</title>
     <body>
-        
+        <span>Hello World!</span>
         <div>
-            Hello World!
+            <span>Hello World AGAIN!</span>
         </div>
-        
-        <!-- This is an inline comment inside the HTML -->
-        <!-- The script tag encloses JS code -->
-        <script>
-
-            // Uncomment for step-by-step execution.
-            debugger;
-
-            // Locate the <DIV> tag.
-            
-            // <BODY> tag.
-            document.body;
-
-            // Array of children elements of the <BODY> tag.
-            document.body.children;
-
-            // The <DIV> tag.
-            document.body.children[0];
-
-            // Locate all <DIV> tags.
-
-            // This is a global variable that you can access in the console.
-            let divs = document.getElementsByTagName('div');
-
-            // The <DIV> tag.
-            divs[0];
-
-            // Modify the content of the <DIV> tag with the .innerHTML property.
-
-            divs[0].innerHTML;
-
-            divs[0].innerHTML = 'Something else';
-
-            // Can also specify HTML tags directly.
-
-            divs[0].innerHTML = '<strong>Something else</strong>';
-
-
-        </script>
     </body>
+    
+    <!-- Hi I am your first HTML file! -->
+    <!-- The line above was a comment. -->
+    <!-- 
+        Maybe I am not your first HTML file, 
+        but I am your first HTML file of this exercise sheet.
+    -->
+    <!-- Ah, the lines above were a multi-line comment. -->
+    <!--
+        This file looks a bit empty, so you are expecting an
+        exercise to fill it in?
+        
+        Right, but first I need to write the name of the sheet:
+
+        //////////////////////////
+        Exercise Sheet 1: HTML 101
+        //////////////////////////
+    -->
+    <!-- 
+        Now we can start.
+        
+        Exercise 1. Open this file in the browser.
+        //////////////////////////////////////////
+
+        Really easy, but you should do it. Don't expect a solution for this.
+
+        Exercise 2. Fix the doctype
+        ////////////////////////////
+
+        The browser will render this (empty) HTML just fine, but you should add
+        the DOCTYPE definition on top. What is the DOCTYPE?
+
+        DOCTYPE is the first thing that you should write in an HTML5 document.
+        It tells the browser what type of document this is. If you miss it, you
+        are probably going to be fine, but there is a chance your browser 
+        behaves "quirky."
+
+        Long Hint: In HTML 5, writing the DOCTYPE is really easy:
+        https://developer.mozilla.org/en-US/docs/Glossary/Doctype
+
+        In HTML 4.01, it was more complicated and was created quite a few errors
+        among developers. You had to write something like:
+
+        <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+        Exercise 3. Add a title (and a head?)
+        /////////////////////////////////////
+
+        The browser displays the title of a page inside the tab or on its title
+        bar. Sounds a good idea, to add one, right? What about "HTML 101" ?
+        Hint: Use the <title> tag.
+        Hint2: In HTML 4.01, the <title> tag needed to be inside the <head>
+        tag, which should contain all meta information about the web page 
+        itself. In HTML 5, you can omit the <head> tag.
+
+        Exercise 4. Hello World (and a body!)
+        /////////////////////////////////////
+
+        a. The page looks still miserably empty and we are already at the fourth exercise. Let's add some content immediately! As you know already, the first thing you write in these occasions is: "Hello World".
+        
+        Hint: You should first add the <body> tags. Unlike <head>, <body> is 
+        a mandatory tag.
+
+        b. Now comment out the body tag and inspect the page in the "Elements"
+        tab of the DevTools of your browser. Does the browser add missing tags automatically? 
+
+        Exercise 5. Structures 
+        ///////////////////////
+
+        HTML defines the structure (i.e., the layout) of the page---together with CSS which we will see in the moment. Forget about CSS, let's see
+        what HTML can do alone.
+
+        a. Add a <span> tag around "Hello World." Does something happens?
+            
+        b. Adds a new <span> tag enclosing "Hello World AGAIN." Does something happens? Where is "Hello World AGAIN." position relative to the content of the first <span>?
+            
+        c. Now add a <div> or a <p> tag around the second <span> containing "Hello World AGAIN." What happened? <div>, <p> and <span> are both containers for text (or other elements), but they have a different default display. Some elements are "block" elements, like <div> or <p>, other are "in-line" elements like <span>.
+        Hint: <div> stands for divisor, and <p> for paragraph.
+        Hint2: and <span> ? <span> spans horizontally.
+
+        d. You may on purpose forget to close a tag in exercise c. Open the "Elements" tab of your DevTool to check if the browser fixes your error automatically. Does it?
+
+        Exercise 6. BRrrrrr 
+        ///////////////////
+
+        This exercise sheet cannot be complete if you are not introduced
+        the an old friend: the <br> element. <br> means break and it just adds
+        a new return line to the display of the page. In theory, usage of <br> should be limited to very few usecases, because you have much more control over spacing with CSS. In practice, you use the quick-and-dirty <br> quite often. 
+        
+        a. Go ahead now and spray around some <br> love on the page, as it most pleases you.  
+
+        b. <br> is a single tag, it does not enclose any other element. You may also encounter <br> as a self-closing tag such as <br/> or <br />. Is there a difference among these specifications?
+
+        https://stackoverflow.com/questions/1946426/html-5-is-it-br-br-or-br
+
+    -->
+
+    <!--
+        You finished this sheet!
+        ////////////////////////
+
+        It was not that difficult, you should look for thougher challenges 
+        in the next sheet.
+    -->
+    
 </html>
