@@ -7,25 +7,32 @@
 
         In this exercise you **simulate** a remote connection to a server.
 
-        After pressing Submit, validate the text inside of the textarea: the text must be longer than 10 characters.
-
-        If validation fails, color the texarea red and display a warning (an alert is fine). Upon typing again in the textarea, remove warnings and reset default colors. 
-
-        If the text is validated, wait 5 seconds for a reply from the simulated server. 
+        After pressing "Submit" the following things should happen:
         
-        While waiting all forms must be disabled.
+        1. Validate the text inside of the textarea: the text must be longer than 10 characters.
 
-        Simulated server can return an error or a success message in the form of a serialized JSON object.
+        2. If validation fails, color the texarea red and display a warning (an alert is fine). Upon typing again in the textarea, remove warnings and reset default colors. 
 
-        Parse the object and discover what the server replied.
+        3. If the text is validated, wait 5 seconds for a reply from the simulated server.
+        Hint: setTimeout().
+        
+        4. While waiting all forms must be disabled.
 
-        The server returns an error, with the following probabilities:
+        5. Simulated server returns an error or a success message in the form of a serialized JSON object.
+        Hint: https://www.w3schools.com/jsref/jsref_obj_json.asp.
+
+        6. Parse the object and discover what the server replied.
+
+        7. The server returns an error, with the following probabilities:
 
         - 10% if you selected subject line "You are great"
         - 90% if you selected subject line "You suck!"
         - 50% if you selected subject line "You are kind of OK"
 
-        Keep a log of the replies from the server by adding a new element with a timestamp and the outcome of the request in the diary div.
+        8. Keep a log of the replies from the server by adding a new element with a timestamp and the outcome of the request in the diary div.
+
+        9. The log entries should be appended as items of an unordered list.
+        Hint: Tags <ul> and <li>.
 
     -->
 

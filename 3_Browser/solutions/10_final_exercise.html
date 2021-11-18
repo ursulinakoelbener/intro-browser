@@ -1,0 +1,232 @@
+<html>
+    <!--
+            
+        /////////////////////////////////
+        Exercise Sheet 10: Final Exercise
+        /////////////////////////////////
+
+        In this exercise you **simulate** a remote connection to a server.
+
+        After pressing "Submit" the following things should happen:
+        
+        1. Validate the text inside of the textarea: the text must be longer than 10 characters.
+
+        2. If validation fails, color the texarea red and display a warning (an alert is fine). Upon typing again in the textarea, remove warnings and reset default colors. 
+
+        3. If the text is validated, wait 5 seconds for a reply from the simulated server. 
+        Hint: setTimeout().
+        
+        4. While waiting all forms must be disabled.
+
+        5. Simulated server returns an error or a success message in the form of a serialized JSON object.
+        Hint: https://www.w3schools.com/jsref/jsref_obj_json.asp.
+
+        6. Parse the object and discover what the server replied.
+
+        7. The server returns an error, with the following probabilities:
+
+        - 10% if you selected subject line "You are great"
+        - 90% if you selected subject line "You suck!"
+        - 50% if you selected subject line "You are kind of OK"
+
+        8. Keep a log of the replies from the server by adding a new element with a timestamp and the outcome of the request in the diary div.
+
+        9. The log entries should be appended as items of an unordered list.
+        Hint: Tags <ul> and <li>.
+
+    -->
+
+    <title>Final Exercise</title>
+
+    <link rel="stylesheet" href="../css/style_interactions.css" />
+    <link rel="stylesheet" href="../css/style_inputs.css" />
+    </head>
+
+    <body>
+        <div id="main">
+            <div class="container">
+                <div id="below" class="img-container">
+                    <a href="https://en.wikipedia.org/wiki/Brendan_Eich" target="_blank">
+                        <img data-name="Brendan" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.welt.de%2Fimg%2Fwirtschaft%2Fwebwelt%2Fmobile126347555%2F0372502857-ci102l-w1024%2FMozilla.jpg&f=1&nofb=1" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div id="who" class="container">
+            <strong>Write a letter to Brendan</strong>
+            <br/> <br/>
+                
+                <label for="brendan-subject">
+                   Select a predefined subject line.
+                </label>
+                <select id="brendan-subject">
+                    <option>You are great!</option>
+                    <option>You suck!</option>
+                    <option>You are kind of OK</option>
+                </select>
+                <br/>
+                <label for="brendan-text">Dear Brendan,</label>
+                <textarea id="brendan-text" ></textarea>
+                <br/>
+
+                <label for="brendan-sign">Sign, if you wish.</label>
+                <input id="brendan-sign" type="text" />
+                <br/>
+                
+                <input type="submit" value="Submit" id="send" />
+
+        </div>
+
+        <div id="diary" class="container" style="display: none;">
+           <ul></ul>
+        </div>
+
+
+        <script>
+             
+            const formatServerResponse = response => {
+                let date = new Date().toUTCString();
+                let res = response.err ? 'Failure' : 'Success';
+                return `<span style="font-size: medium">${date}: ${res}</span>`;
+            };
+
+            const isValidText = text => text.length > 10;
+
+            const parseReply = reply => {
+                return JSON.parse(reply);
+            };
+
+            const isServerError = subject => {
+                let prob;
+                if (subject === "You are great!") prob = 0.1;
+                else if (subject === "You suck!") prob = 0.9;
+                else prob = 0.5;
+                return Math.random() < prob;
+            };
+
+            const serverReplies = (subject, text, signature) => {
+                let err = isServerError(subject);
+                let response = { err: err };
+                response = JSON.stringify(response);
+                return response;
+            };
+
+            const handleResponse = serializedResponse => {
+                let response;
+                
+                // In real-world, derialization might be malformed, 
+                // hence try and catch here.
+                try {
+                    response = JSON.parse(serializedResponse);
+                }
+                catch(e) {
+                    response = { err: true };
+                }
+
+                // Re-enable inputs.
+                toggleInputs(true);
+
+                // Add log entry to diary.
+                addLogEntry(response);
+            };
+
+            const addLogEntry = response => {
+                let diary = document.querySelector('#diary');
+                // Make sure it is visible.
+                diary.style.display = '';
+
+                // Search with querySelector within diary.
+                let ul = diary.querySelector('ul');
+                
+                // A new list item.
+                let li = document.createElement('li');
+                let formattedResponse = formatServerResponse(response);
+                li.innerHTML = formattedResponse;
+                ul.appendChild(li);
+            };
+
+            const sendToServer = (subject, text, signature, handleResponse) => {
+                // Simulate sending to server.
+
+                setTimeout(() => {
+
+                    // debugger;
+
+                    // Get response from server.
+                    let response = serverReplies(subject, text, signature);
+                    
+                    // Handle response with a callback.
+                    handleResponse(response);
+
+                }, 1000);
+            };
+
+            const textarea = document.querySelector('#brendan-text');
+            const select = document.querySelector('#brendan-subject');
+            const input = document.querySelector('#brendan-sign');
+
+            const highlightTextarea = () => {
+                textarea.style.background = 'firebrick';
+            };
+
+            const unHighlightTextarea = () => {
+                textarea.style.background = 'white';
+            };
+
+            textarea.addEventListener('input', () => unHighlightTextarea() );
+            
+            textarea.addEventListener('click', () => unHighlightTextarea() );
+
+            const toggleInputs = on => {
+                textarea.disabled = !on;
+                select.disabled = !on;
+                input.disabled = !on;
+            };
+
+            // Survey about feelings.
+            document.getElementById('send').onclick = event => {
+                
+                let text = textarea.value;
+                
+                let valid = isValidText(text);
+
+                if (!valid) {
+                    
+                    highlightTextarea();
+
+                    alert('Text must be longer than 10 chars.');
+                    
+                    // Do not go forward.
+                    return;
+                }
+
+                let subject = document.querySelector('#brendan-subject').value;
+                let signature = document.querySelector('#brendan-sign').value;
+
+                toggleInputs(false);
+                
+                sendToServer(subject, text, signature, handleResponse);
+            }
+        </script>
+
+
+        <!-- 
+
+            Exercise 1. Capture the inputs.
+            //////////////////////////////
+
+        -->
+
+        <!-- 
+
+            Exercise 2. Write the letter.
+            //////////////////////////////
+
+        -->
+
+        
+
+    </body>
+
+</html>
