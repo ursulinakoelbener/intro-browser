@@ -30,38 +30,80 @@
         <!-- Solution to Ex 1. querySelector with id -->
         <script>
             // Uncomment for step-by-step execution.
-            debugger;
+            // debugger;
 
             // Return the element with ID "above".   
             let above = document.querySelector('#above');
-            // let above = document.getElementById('above');
 
             above.innerHTML += ' is above.';
 
             let below = document.querySelector('#below');
-            // let below = document.getElementById('below');
 
             below.innerHTML += ' is below.';
             
         </script>
         
-            <!-- Solution to Ex 2. getElementById -->
-            <script>
-                // Uncomment for step-by-step execution.
-                debugger;
-    
-                // Return the element with ID "above".   
-                let above = document.querySelector('#above');
-                // let above = document.getElementById('above');
-    
-                above.innerHTML += ' is above.';
-    
-                let below = document.querySelector('#below');
-                // let below = document.getElementById('below');
-    
-                below.innerHTML += ' is below.';
-                
-            </script>   
+        <!-- Solution to Ex 2. getElementById -->
+        <script>
+            // Uncomment for step-by-step execution.
+            // debugger;
+
+            // Return the element with ID "above".   
+            
+            let above = document.getElementById('above');
+            above.innerHTML += ' is above.';
+
+            let below = document.getElementById('below');
+            below.innerHTML += ' is below.';
+            
+        </script> 
+
+        <!-- Solution to Ex 3. Accessing attributes -->
+        <script>
+            // Uncomment for step-by-step execution.
+            // debugger;
+
+            // a.
+
+            // Return the element with ID "above".   
+            let above = document.querySelector('#above');
+            // let above = document.getElementById('above');
+
+           console.log(above.id);
+           console.log(above.getAttrbute("id"));
+
+            let below = document.querySelector('#below');
+            // let below = document.getElementById('below');
+
+           console.log(below.id);
+           console.log(below.getAttrbute("id"));
+
+           // b.
+
+           above.foo = 123;
+
+           above.setAttribute('foo', 123);
+            
+        </script>
+
+        <!-- Solution to Ex 3. Accessing attributes -->
+        <script>
+            // Uncomment for step-by-step execution.
+            // debugger;
+
+            // a.
+
+            // Return the element with ID "above".   
+            let above = document.querySelector('#above');
+            // let above = document.getElementById('above');
+
+            // Add a data-hello attribute to the HTML code first!
+            console.log(above.dataset.hello);
+
+            // Does it go into the DOM?
+            above.dataset.hello2 = 'World';
+            
+        </script> 
     </body>
 
     <!--
@@ -80,7 +122,7 @@
     <!--
 
         Exercise 2. Bonus. getElementById.
-        ///////////////////////////
+        //////////////////////////////////
 
         An alternative often used, albeit less flexible, is
         document.getElementById()  
@@ -93,8 +135,8 @@
 
     <!-- 
 
-        Exercise 3. Accessing attributes
-        //////////////////////////////////
+        Exercise 3. Accessing attributes.
+        /////////////////////////////////
 
         As we know, HTML elements are objects in JavaScript, meaning that their attributes are properties of these objects.
 
@@ -118,13 +160,11 @@
         data-xxx, where xxx is the name of the property you are interested in.
 
         b. You can then retrieve the properties from the dataset using the dataset property.
-        Hint: element.dataset.get()
+        Hint: element.dataset.propertyName
 
         c. Likewise, you can set properties of the dataset and they are reflected in the HTML (check the Elements tab of DevTools if you don't believe it).
-        Hint: element.dataset.set()
+        Hint: element.dataset.propertyName = 123
 
-        
-        
     -->
 
 </html>

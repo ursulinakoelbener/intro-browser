@@ -32,7 +32,39 @@
             });
         </script>
 
-       
+        <!-- Solution to Ex. 2. Bonus. Refactor your code. -->
+        <script>
+                // debugger;
+                const thank = (nameOut, nameIn) => {
+                // Get all spans in the page.
+                let spans = document.querySelectorAll('span');
+                // Loop through all the spans.
+                spans.forEach(span => {
+                    let text = span.innerHTML;
+                    // Get the index of the first occurence of nameOut.
+                    let index = text.indexOf(nameOut);
+                    if (index === -1) {
+                        console.log('Nothing to replace');
+                        // Early return.
+                        // This is coding paradigm that avoids creating an else
+                        // branch after the if. We simply exit here and we don't
+                        // execute what comes after.
+                        return;
+                    }
+                    // First part of the string: from 0 to the index, 
+                    // and we concatenate the new name.
+                    let str = text.substring(0, index) + nameIn + ' ';
+                    // Second part of the string: from the index plus the length
+                    // of the name we substitud.
+                    str += text.substring(index + nameOut.length);
+
+                    // Using innerHTML (innerText might lose the HTML tags).
+                    span.innerHTML = str;
+                });
+            };
+
+            thank('Brendan', 'Linus');            
+        </script>
     </body>
 
         <!-- 
