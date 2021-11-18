@@ -66,6 +66,20 @@
 
         We know that JavaScript is full of alternatives, so why not yet another way of deferring loading a JS script?
 
-        // window.onload.
+        We could use window.onload.
+
+        
+        Just wrap everything inside a function bound to the 
+        onload event to be on the safe side.
+
+        Checkpoint.
+        There is an important implication to understand with 
+        wrapping your code: all variables declared in the onload
+        function will no longer be available outside of it.
+        How can you to display its value in the JS console without
+        entering the debug mode?
+
+            window.onload = function() {
+    -->
 
 </html>

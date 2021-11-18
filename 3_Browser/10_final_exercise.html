@@ -1,16 +1,35 @@
 <html>
     <!--
             
-        ////////////////////////
-        Exercise Sheet 8: Inputs
-        ////////////////////////
+        /////////////////////////////////
+        Exercise Sheet 10: Final Exercise
+        /////////////////////////////////
 
-        No Inputs No Party. Technically mouse moves are inputs already, so we partied already, but here are talking about text inputs.
+        In this exercise you **simulate** a remote connection to a server.
+
+        After pressing Submit, validate the text inside of the textarea: the text must be longer than 10 characters.
+
+        If validation fails, color the texarea red and display a warning (an alert is fine). Upon typing again in the textarea, remove warnings and reset default colors. 
+
+        If the text is validated, wait 5 seconds for a reply from the simulated server. 
         
-        
+        While waiting all forms must be disabled.
+
+        Simulated server can return an error or a success message in the form of a serialized JSON object.
+
+        Parse the object and discover what the server replied.
+
+        The server returns an error, with the following probabilities:
+
+        - 10% if you selected subject line "You are great"
+        - 90% if you selected subject line "You suck!"
+        - 50% if you selected subject line "You are kind of OK"
+
+        Keep a log of the replies from the server by adding a new element with a timestamp and the outcome of the request in the diary div.
+
     -->
 
-    <title>Inputs</title>
+    <title>Final Exercise</title>
 
     <link rel="stylesheet" href="./css/style_interactions.css" />
     <link rel="stylesheet" href="./css/style_inputs.css" />
@@ -114,7 +133,7 @@
 
         -->
 
-
+        
 
     </body>
 
