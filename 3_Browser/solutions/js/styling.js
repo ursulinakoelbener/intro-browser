@@ -4,7 +4,7 @@
 // Option 4: Modify the style property via JS.
 let divAbove = document.querySelector("#above");
 divAbove.style.background = '#CCC';
-divAbove.style.border = '1px solid black';
+divAbove.style.border = '5px solid black';
 
 
 // Some CSS property needs to be quoted in JS to 
