@@ -58,8 +58,15 @@
 
 
         <script>
-              
-           // TODO: Your solution here.
+            let subject = document.querySelector('#brendan-subject');
+            let text = document.querySelector('#brendan-text');
+                        let sign = document.querySelector('#brendan-sign');
+            
+            let submit = document.querySelector('#send');
+            submit.onclick = function (){
+                let str = subject.value + ' ' + text.value  + ' ' + sign.value;
+                alert (str);
+            }
 
         </script>
 
@@ -97,7 +104,26 @@
             Print the msg to console or inside an alert.
 
         -->
+        <script>
+            const formatMsg = (subject, text, sign, br = '<br>') =>
+            {
+                let date = Date();
+            
+                let str = `${date} ${br}
+                Subject: ${subject} ${br}
+                Dear Brendan,  ${br}
+                ${text}  ${br} 
+                Yours,  ${br}
+                ${sign}`;
 
+                return str;
+            }
+                submit.onclick = function (){
+                let str = formatMsg(subject.value, text.value, sign.value, '')
+                alert (str);
+            }
+
+        </script>
         <!-- 
 
             Exercise 3. Append the letter.
