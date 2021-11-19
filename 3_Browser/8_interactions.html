@@ -16,8 +16,29 @@
 
     <title>Interactions</title>
 
+<!--
+simplest really comon callback function
+-->    
+<script>
+   setTimeout (function() {
+       console.log('I am alive!');
+   }, 2000); 
+</script>
+
     <link rel="stylesheet" href="./css/style_interactions.css" />
     </head>
+<!--
+Defining a Event Listener using the querySelector
+- select the event
+- add a function
+
+Example:
+const btn = document.querySelector('button');
+btn.onclick = function() {
+    const rndCol = `rgb(random(255), random(255), random(255))`; // define random colour
+    document.body.style.backgroundColor = rndCol;
+}
+-->  
 
     <body>
         <div id="main">
@@ -40,8 +61,8 @@
             Which one is Brendan Eich?
         </div>
 
-        <!-- For Ex.  -->
-        <!-- <div id="counter" class="container">
+        <!-- For Ex. 3  -->
+        <div id="counter" class="container">
            <table>
                <thead>
                    <tr>
@@ -55,7 +76,7 @@
                    </tr>
                </tbody>
             </table>
-        </div> -->
+        </div>
 
         <!-- 
 
@@ -71,7 +92,13 @@
             
             - "Correct! You are a true Brendan's fan!", otherwise
         -->
-
+<script>
+    let brendan = document.querySelector('#below');
+    brendan.onclick = () => alert('Correct! You are a true Brendan fan!');
+    
+    let linus = document.querySelector('#above');
+    linus.onclick = () => alert('Nope! Try again...');
+</script>
         <!-- 
 
             Exercise 2. Bubbling Up.
@@ -86,8 +113,20 @@
            Now, rewrite exercise 1 with only one event listener.
            Hint: the event is passed as an object to the listener.
         
-        -->
-
+        -->      
+        
+        <script> 
+        let firstContainer = document.querySelector('#main, container');
+        firstContainer.onclick = event => {
+            let target = event.target;
+            if (target.dataset.name == 'Brendan'){
+                alert('Correct! You are a true Brendan fan!');
+            }
+            else {
+                alert('Nope! Try again...');
+            }
+        }
+        </script>
         <!-- 
 
             Exercise 3. Keeping Stats.
@@ -106,7 +145,46 @@
             b. Now define two global variables, each counting the clicks on each image, and make sure to update them at every click. The current value of those variables should be displayed on the page as well.
             
         -->
+        <script>
+            let firstContainer = document.querySelector('#main .container');
 
+            const updateCounter = correct => {
+                debugger;
+                let id = (correct ? 'correct' : 'wrong') + '-counter';
+                let counter = document.querySelector(`#${id}`);
+                let currentValue = counter.innerText || 0;
+                counter.innerText = ++currentValue;
+            };
+
+            firstContainer.onclick = event => {
+                // This is the element that was clicked.
+                let target = event.target;
+                // Check the dataset.
+                let res = target.dataset.name === 'Brendan';
+                // Update counter.
+                updateCounter(res);
+            };
+        </script>
+        
+        <!-- Mircos Solution -->
+        <script>
+            let firstContainer = document.querySelector('#main .container');
+
+            firstContainer.onclick = event => {
+                // This is the element that was clicked.
+                let target = event.target;
+
+                // Check the dataset.
+                if (target.dataset.name === 'Brendan') {
+                    number = document.querySelector("#wrong-counter").innerText;
+                    number = parseInt(number);
+                    document.querySelector("#wrong-counter").innerText = number + 1;
+                }
+                else {
+                    document.querySelector("#correct-counter").innerText += 1;
+                }
+            };
+        </script>
         <!-- 
 
             Exercise 4. Sound On!
@@ -129,7 +207,41 @@
             But not every browser supports it, so make sure to try and catch it.
             https://caniuse.com/?search=Audio
         -->
-
+        <script>
+            let firstContainer = document.querySelector('#main .container');
+    
+            const updateCounter = correct => {
+                let id = (correct ? 'correct' : 'wrong') + '-counter';
+                let counter = document.querySelector(`#${id}`);
+                let currentValue = counter.innerText || 0;
+                counter.innerText = ++currentValue;
+            };
+    
+            const playSound = correct => {
+                let file;
+                if (correct) file = 'success-fanfare-trumpets-6185'; 
+                else file = 'jews_harp_boing-7111';
+    
+                try {
+                    let audio = new Audio(`sounds/${file}.mp3`);
+                    audio.play();
+                }
+                catch(e) {
+                    console.log('cannot play sounds in this browser :(');
+                }
+            };
+    
+            firstContainer.onclick = event => {
+                // This is the element that was clicked.
+                let target = event.target;
+                // Check the dataset.
+                let res = target.dataset.name === 'Brendan';
+                // Update counter.
+                updateCounter(res);
+                // Play sound.
+                playSound(res);
+            };
+        </script>
         <!-- 
 
             Exercise 5. Advanced. Pick Me!
