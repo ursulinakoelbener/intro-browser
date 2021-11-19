@@ -18,7 +18,7 @@
             for the element within the page.
         -->
         <div id="above">
-            Linus Torvald
+            Marie Curie
         </div>
 
         <!-- You can break a tag declaration on multiple lines -->
@@ -38,7 +38,17 @@
         hint: Use querySelector(#id) where id is...
 
     -->
+    <script>
+        let above = document.querySelector('#above');
 
+        above.innerHTML += ' is above.';
+       
+
+        let below = document.querySelector('#below');
+
+        below.innerHTML += ' is below.';
+         
+    </script>
 
     <!--
 
@@ -53,7 +63,15 @@
         b. An even less commonly used method is:
         document.getElementsByTagName(). No exercise, just know about it.
     -->
+    <script>
+        above = document.getElementById('#above')
+        above.innerHTML += ' is above.'
 
+        below = document.getElementById('#below')
+        below.innerHTML += ' is above.'
+
+    </script>
+    
     <!-- 
 
         Exercise 3. Accessing attributes.
@@ -67,7 +85,19 @@
         Now try may also use the setAttribute() method instead. Any change?
         
     -->
+    <script>
+        
+        let aboveid = document.querySelector('#above');
+        
+        console.log(aboveid.id);
+        console.log(aboveid.getAttribute("id"));
 
+        let belowid = document.querySelector('#below');
+        
+        console.log(belowid.id);
+        console.log(belowid.getAttribute("id"));
+
+    </script>
     
     <!-- 
 
@@ -87,5 +117,8 @@
         Hint: element.dataset.propertyName = 123
 
     -->
+<div>
+    id=test, 
+</div>
 
 </html>

@@ -16,13 +16,59 @@
 
 <link rel="stylesheet" href="./css/style.css" />
 
+<style>
+    body {
+  /* 
+    Specify the font that the browser should use. 
+    If a font is not available, it goes to the next one.
+  */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* 
+  Applies to the element with id "below" 
+  (pound sign indicates the id).
+*/
+#below {
+  color: red;
+}
+
+#above {
+  color: orangered;
+}
+
+/* A dot followed by name create a class that can be applied to any element. */
+
+.large {
+    font-size: 40px;
+}
+
+/* Styles can contain multiple rules that will be applied together. */
+
+.centered {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.wide {
+    padding: 10px;
+    margin: 10px;
+}
+  </style>
+
+
 </head>
 
 <body>
 
     <!-- The class attribute associates one or more classes to elements -->
-    <div id="above" class="large wide">
-        Linus Torvald
+    <div id="above" class="large centered">
+        Important People 
+    </div>
+
+    <div id="above" class="large centered">
+        Marie Curie
     </div>
 
     <!-- Option 3: the inline "style" attribute -->
@@ -49,7 +95,9 @@
             b. Checkpoint. Now the external CSS files says that the text inside the div "below" should be red, while the <style> tag says that it should be black. Who wins the argument? And why? This is the magic of the **cascading** style sheets.
 
         -->
-
+        <div class="large centered" style="text-transform: uppercase">
+            Hedwig Dohm
+        </div>
     <!-- 
 
             Exercise 2. Inline styles.
@@ -60,7 +108,9 @@
             Make the text inside the element with id "below" all uppercase.
 
         -->
-
+        <div id="below" class="large centered" style="text-transform: uppercase">
+            Hedwig Dohm
+        </div>
     <!-- 
 
             Exercise 3. JavaScript styling.
@@ -85,7 +135,9 @@
            https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units
            
         -->
-
+<script src="js/styling.js">
+    
+</script>
         <!-- 
 
             Exercise 4. Good artists borrow, great artists steal.

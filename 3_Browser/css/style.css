@@ -14,13 +14,17 @@ body {
   (pound sign indicates the id).
 */
 #below {
-  color: red;
+  color: orange;
+}
+
+#above {
+  color: green;
 }
 
 /* A dot followed by name create a class that can be applied to any element. */
 
 .large {
-    font-size: 30px;
+    font-size: 40px;
 }
 
 /* Styles can contain multiple rules that will be applied together. */
